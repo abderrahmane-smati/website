@@ -1109,7 +1109,18 @@ section {
 
 /* *************** I've added */
 
+.progress-lang {
+  height: 60px;
+  display: block;
+  background: none;
+  border-radius: 0;
+  background: #dce8f8;
+  height: 10px;
+}
+
 .progress-bar-lang {
-  /* height: 10px; */
-  background-color: #0c6438;
+  width: 1px;
+  height: 10px;
+  transition: 0.9s;
+  background-color: #149ddd;
 }
