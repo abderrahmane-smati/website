@@ -1124,3 +1124,17 @@ section {
   transition: 0.9s;
   background-color: #149ddd;
 }
+
+.bi-myicon {
+  font-size: 120%;
+}
+.bi-myicon-2 {
+  font-size: 150%;
+}
+
+#img-me {
+  filter: grayscale(100%);
+}
+#img-me:hover {
+  filter: none;
+}
