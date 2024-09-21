@@ -126,7 +126,7 @@
 
 
   <!-- * ****************************** NAVBAR -->
-  <nav id="navbarre" class="navbar navbar-expand-lg bg-black rounded fixed-top" aria-label="Eleventh navbar example">
+  <nav class="navbar navbar-expand-lg bg-black rounded fixed-top" aria-label="Eleventh navbar example">
     <div class="container-fluid">
       <!-- <a class="navbar-brand" href="#">Navbar</a> -->
       <img id="logo" class="logo img-fluid" src="assets/photos/profile-img.png" alt="logo" srcset="">
@@ -210,7 +210,7 @@
   <!-- ^ ********************************************* MAIN -->
 
   <!-- <h1 CLASS="text-white">EXEMPLE</h1> -->
-  <div id="separateurPourNavBar" style="height: 86px;"></div>
+  <div style="height: 56px;"></div> <!-- Spacer for the height of the navbar -->
 
   <!-- <div>
     <img fetchpriority="high" src="assets/photos/point-rouge.png" alt="Flare.png" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
@@ -218,7 +218,7 @@
 
   <!-- <img fetchpriority="high" src="https://static.wixstatic.com/media/22209d_3ad047f7ac7e41f89b0d5ab83d29a404~mv2.png/v1/fill/w_434,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Flare.png" alt="Flare.png" style="object-fit: cover; object-position: 50% 50%; width: 100%;"> -->
 
-  <main class="container-fluid p-0 m-0" id="main">
+  <main class="container" id="main">
 
     <!-- * ***************************************** CAROUSSEL -->
     <div class="row container-fluid">
@@ -320,85 +320,86 @@
       <div class="b-example-divider"></div>
 
       <div class="container px-4 py-5" id="custom-cards">
-        <h2 class="pb-2 border-bottom">AREAS OF EXPERTISE</h2>
+        <h2 class="pb-2 border-bottom">Custom cards</h2>
 
 
-        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 align-items-stretch g-4 py-5">
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 
-          <!-- ^ Expertise 1 -->
-          <div class="col-3 estomper-div">
-            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-top-4 shadow-lg bg-cover bg-center">
+          <div class="col estomper-div un-filtre" id="100vx">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg bg-cover bg-center" style="background-image: url('assets/photos/fass-filter-1.jpg');">
               <!-- <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('assets/photos/unsplash-photo-1.jpg'); background-size: cover;"> -->
-              <div class="p-3 pb-1">
-                <h3 class="p-0 m-0 mb-3 fs-4 lh-1 fwbold">Branding</h3>
-                <p class="small p-0 x-0">I translate brand essence into visual identities that resonate with the target audience.</p>
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-dark text-shadow-1">
+                <h3 class="pt-0 mt-0 mb-4 display-6 lh-1 fw-bold">Titre</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+                    <svg class="bi me-2" width="1em" height="1em">
+                      <use xlink:href="#geo-fill" />
+                    </svg>
+                    <small>Filtre 100vx</small>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <svg class="bi me-2" width="1em" height="1em">
+                      <use xlink:href="#calendar3" />
+                    </svg>
+                    <small>3d</small>
+                  </li>
+                </ul>
               </div>
-
-              <video autoplay muted loop width="100%">
-                <source src="assets/photos/expertise-1.mp4" type="video/mp4">
-                <!-- Your browser does not support the video tag. -->
-              </video>
-
             </div>
           </div>
 
-
-          <!-- ^ Expertise 2 -->
-          <div class="col-3 estomper-div">
-            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-top-4 shadow-lg bg-cover bg-center">
-              <!-- <div class="d-flex flex-column h-100 p5 pb3 text-dark text-shadow-1"> -->
-
-              <div class="p-3 pb-1">
-                <h3 class="p-0 m-0 mb-3 fs-4 lh-1 fwbold">Marketing Collateral</h3>
-                <p class="small p-0 x-0">Marketing Collateral
-                  I create impactful marketing visuals that drive results, whether it's in print or digital.</p>
+          <div class="col estomper-div un-filtre">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg bg-cover bg-center" style="background-image: url('assets/photos/unsplash-photo-2.jpg');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+                    <svg class="bi me-2" width="1em" height="1em">
+                      <use xlink:href="#geo-fill" />
+                    </svg>
+                    <small>Pakistan</small>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <svg class="bi me-2" width="1em" height="1em">
+                      <use xlink:href="#calendar3" />
+                    </svg>
+                    <small>4d</small>
+                  </li>
+                </ul>
               </div>
-
-              <video autoplay muted loop width="100%">
-                <source src="assets/photos/expertise-2.mp4" type="video/mp4">
-                <!-- Your browser does not support the video tag. -->
-              </video>
-
-              <!-- </div> -->
             </div>
           </div>
 
-
-          <!-- ^ Expertise 3 -->
-          <div class="col-3 estomper-div">
-            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-top-4 shadow-lg bg-cover bg-center">
-
-              <div class="p-3 pb-1">
-                <h3 class="p-0 m-0 mb-3 fs-4 lh-1 fwbold">Ad Creative</h3>
-                <p class="small p-0 x-0">I specialize in creating engaging ad visuals to capture attention and Drive sales or leads.</p>
+          <div class="col estomper-div un-filtre">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg bg-cover bg-center" style="background-image: url('assets/photos/unsplash-photo-3.jpg');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+                    <svg class="bi me-2" width="1em" height="1em">
+                      <use xlink:href="#geo-fill" />
+                    </svg>
+                    <small>California</small>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <svg class="bi me-2" width="1em" height="1em">
+                      <use xlink:href="#calendar3" />
+                    </svg>
+                    <small>5d</small>
+                  </li>
+                </ul>
               </div>
-
-              <video autoplay muted loop width="100%">
-                <source src="assets/photos/expertise-3.mp4" type="video/mp4">
-                <!-- Your browser does not support the video tag. -->
-              </video>
-
             </div>
           </div>
-
-
-          <!-- ^ Expertise 4 -->
-          <div class="col-3 estomper-div">
-            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-top-4 shadow-lg bg-cover bg-center">
-
-              <div class="p-3 pb-1">
-                <h3 class="p-0 m-0 mb-3 fs-4 lh-1 fwbold">Web Design</h3>
-                <p class="small p-0 x-0">I design intuitive interfaces and high-fidelity prototypes that realize product visions.</p>
-              </div>
-
-              <video autoplay muted loop width="100%">
-                <source src="assets/photos/expertise-4.mp4" type="video/mp4">
-                <!-- Your browser does not support the video tag. -->
-              </video>
-
-            </div>
-          </div>
-
         </div>
       </div>
       <!-- * ************************************** CARDS  -->
@@ -466,7 +467,7 @@
 
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-            <div class="col estomper-div">
+            <div class="col estomper-div un-filtre" id="XWS3002">
               <div class="card shadow-sm">
                 <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
@@ -487,7 +488,7 @@
               </div>
             </div>
 
-            <div class="col estomper-div">
+            <div class="col estomper-div un-filtre" id="FLP3000">
               <div class="card shadow-sm">
                 <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title>
@@ -508,7 +509,7 @@
               </div>
             </div>
 
-            <div class="col estomper-div">
+            <div class="col estomper-div un-filtre">
               <div class="card shadow-sm">
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                   <title>Placeholder</title>
@@ -527,7 +528,7 @@
               </div>
             </div>
 
-            <div class="col estomper-div">
+            <div class="col estomper-div un-filtre">
               <div class="card shadow-sm">
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                   <title>Placeholder</title>
@@ -546,7 +547,7 @@
               </div>
             </div>
 
-            <div class="col estomper-div">
+            <div class="col estomper-div un-filtre">
               <div class="card shadow-sm">
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                   <title>Placeholder</title>
@@ -565,7 +566,7 @@
               </div>
             </div>
 
-            <div class="col estomper-div">
+            <div class="col estomper-div un-filtre">
               <div class="card shadow-sm">
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                   <title>Placeholder</title>
@@ -584,7 +585,7 @@
               </div>
             </div>
 
-            <div class="col estomper-div">
+            <div class="col estomper-div un-filtre">
               <div class="card shadow-sm">
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                   <title>Placeholder</title>
@@ -603,7 +604,7 @@
               </div>
             </div>
 
-            <div class="col estomper-div">
+            <div class="col estomper-div un-filtre">
               <div class="card shadow-sm">
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                   <title>Placeholder</title>
@@ -622,7 +623,7 @@
               </div>
             </div>
 
-            <div class="col estomper-div">
+            <div class="col estomper-div un-filtre">
               <div class="card shadow-sm">
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                   <title>Placeholder</title>
@@ -735,7 +736,7 @@
 
 
   <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/abdou.js"></script>
+  <script src="assets/js/fass.js"></script>
 
   <!-- Vendor JS Files (https://bootstrapmade.com) -->
   <!-- <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -750,16 +751,6 @@
 
   <!-- Modele bootstrapmade.com Main JS File -->
   <!-- <script src="assets/js/modele-main.js"></script> -->
-
-  <script>
-    // --- Spacer for the height of the navbar
-    // document.addEventListener('DOMContentLoaded', function () {
-    //   console.log(document.getElementById('separateurPourNavBar').style.height);
-    //   console.log(document.getElementById('navbarre').clientHeight);
-    //   document.getElementById('separateurPourNavBar').style.height = `${document.getElementById('navbarre').clientHeight}px`;
-    //   console.log(document.getElementById('separateurPourNavBar').style.height);
-    // });
-  </script>
 
 </body>
 

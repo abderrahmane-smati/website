@@ -1,0 +1,200 @@
+html {
+  overflow: hidden;
+  /* Prevent default scrolling */
+  overflow-y: scroll;
+  /* Enable vertical scrolling */
+  scrollbar-width: none;
+  /* For Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar in WebKit browsers */
+}
+
+body,
+html {
+  background: transparent;
+  /* border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline; */
+}
+
+body {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* font-size: 10px; */
+  /* overflow-x: auto;
+  overflow-y: scroll; */
+  background-color: black;
+}
+
+.image-de-fond {
+  /* width: 100%;
+  height: auto; */
+  background-image: url("../../assets/photos/point-rouge.png");
+  background-size: cover; /* Cover the entire element */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+/* ************** LOGO */
+.logo {
+  width: 40px;
+  /* Default width */
+  height: auto;
+  margin-right: 1rem;
+  transition: transform 2.5s ease-in-out;
+}
+
+.logo:hover {
+  transform: rotate(360deg);
+  /* transform: rotate(180deg); */
+  transition: transform 2.5s ease-in-out;
+}
+
+@media (min-width: 600px) {
+  .logo {
+    width: 50px;
+    /* for screens wider than 600px */
+  }
+}
+
+@media (min-width: 900px) {
+  .logo {
+    width: 70px;
+    /* for screens wider than 900px */
+  }
+}
+
+[data-bs-theme="dark"] #logo-light {
+  display: none;
+}
+
+[data-bs-theme="light"] #logo-dark {
+  display: none;
+}
+
+/* ************** LOGO (end) */
+
+/* **************** CAROUSEL  */
+:root {
+  /* --bs-carousel-item-bg: #fff; */
+  /* --bs-carousel-item-bg: #f0f0f0; */
+  /* Custom background color for light mode */
+}
+
+[data-bs-theme="dark"] {
+  /* --bs-carousel-item-bg: #212529; */
+  /* --bs-carousel-item-bg: #212529; */
+  /* Custom background color for dark mode */
+}
+
+.carousel-item {
+  /* background-color: var(--bs-carousel-item-bg); */
+}
+
+[data-bs-theme="dark"] .carousel-item {
+  /* background-color: #000 !important; */
+  /* background-color: yellow !important; */
+}
+
+/* **************** CAROUSEL (end) */
+
+/* ******************* indicateurs */
+/* [data-aos="fade-up"] {
+  -webkit-transform: translate3d(
+    0,
+    100px,
+    0
+  );
+  transform: translate3d(
+    0,
+    100px,
+    0
+  );
+}
+
+.count-box {
+  padding: 30px;
+  width: 100%;
+}
+.count-box
+  span {
+  font-size: 48px;
+  line-height: 40px;
+  display: block;
+  font-weight: 700;
+  color: #050d18;
+  margin-left: 60px;
+} */
+/* ******************* indicateurs */
+
+/* ************************** GoTop Button */
+#goTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 70px;
+  right: 25px;
+  /* padding: 3px 6px; */
+  /* border-radius: 4px; */
+  /* border-radius: 50%; */
+  z-index: 999;
+  cursor: pointer;
+  /* box-shadow: 4px 4px gray; */
+  background-color: var(--bs-btn-bg);
+}
+
+#goTopBtn span {
+  font-weight: bold;
+  /* font-size: x-large; */
+}
+
+#goTopBtn:hover {
+  filter: invert(1);
+}
+
+/* ************************** GoTop Button (end) */
+
+#myCarousel .carousel-item {
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* ***************************************** Fade */
+.estomper-div {
+  transform: translateY(50px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.estomper-div-fin {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ***************************************** Fade (end) */
+
+.un-filtre.highlight {
+  border: 10px solid #ff9900;
+  /* background-color: #e7f0ff; */
+}
+
+.nav-item {
+  font-size: large;
+  color: white;
+  font-weight: 600;
+}
+.nav-link {
+  color: white;
+}
+
+.bouton-rouge {
+  background-color: #ff0000;
+  /* font-weight: bold; */
+  /* font-size: larger; */
+}
+
+.bouton-rouge:hover {
+  background-color: white;
+  color: #ff0000;
+}

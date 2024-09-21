@@ -1,0 +1,5 @@
+assets/dist/*
+ef/
+*.zip
+*.rar
+old_website/
