@@ -1,8 +1,6 @@
 html {
   overflow: hidden;
   /* Prevent default scrolling */
-}
-html {
   overflow-y: scroll;
   /* Enable vertical scrolling */
   scrollbar-width: none;
@@ -175,7 +173,20 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+.estomper-div-inv {
+  transform: translateY(-50px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.estomper-div-inv-fin {
+  opacity: 1;
+  transform: translateY(0);
+}
 /* ***************************************** Fade (end) */
+
+.un-filtre.highlight {
+  border: 10px solid #ff9900;
+  /* background-color: #e7f0ff; */
+}
 
 .nav-item {
   font-size: large;
@@ -188,7 +199,6 @@ body {
 
 .bouton-rouge {
   background-color: #ff0000;
-  color: white;
   /* font-weight: bold; */
   /* font-size: larger; */
 }
@@ -198,13 +208,14 @@ body {
   color: #ff0000;
 }
 
-.span-texte-1 {
-  color: #ffffff;
-}
-.span-texte-2 {
-  color: #cccccc;
+.expertise {
+  /* height: 400px; */
 }
 
-/* .navbar-toggler-icon {
-  color: white !important;
+/* .video-exprtise {
+  float: bottom;
 } */
+
+.my-small {
+  font-size: 0.775em;
+}

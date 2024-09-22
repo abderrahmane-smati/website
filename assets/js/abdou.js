@@ -40,7 +40,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const estomperInvDivs = document.querySelectorAll('.estomper-div-inv');
 
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('estomper-div-inv-fin');
+                // Optionally unobserve after the effect is applied
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.25 // Adjust as needed (when 25% of the element is visible)
+    });
+
+    estomperInvDivs.forEach(div => {
+        observer.observe(div);
+    });
+});
 // document.addEventListener('DOMContentLoaded', function () {
 //     const estomperDiv = document.getElementById('estomper-div');
 
