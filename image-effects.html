@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image effects</title>
+
+    <style>
+        /* Scale on Hover
+        .image {
+            transition: transform 0.3s ease;
+        }
+        .image:hover {
+            transform: scale(1.1);
+        } */
+
+
+        /* Rotate on Hover
+        .image {
+            transition: transform 0.3s ease;
+        }
+        .image:hover {
+            transform: rotate(5deg);
+        } */
+
+
+        /* Flip Effect
+        .image-container {
+            perspective: 1000px;
+        }
+        .image {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .image-container:hover .image {
+            transform: rotateY(180deg);
+        } */
+
+
+        /* Fade In
+        .image {
+            opacity: 0;
+            transition: opacity 2.5s ease;
+        }
+        .image.visible {
+            opacity: 1;
+        } */
+
+
+        /* Slide In
+        .image {
+            transform: translateX(-100%);
+            transition: transform 1s ease;
+        }
+        .image.visible {
+            transform: translateX(0);
+        } */
+
+
+        /* Blur on Hover
+        .image {
+            transition: filter 0.3s ease;
+        }
+        .image:hover {
+            filter: blur(5px);
+        } */
+
+
+        /* Shadow Effect
+        .image {
+            transition: box-shadow 0.3s ease;
+        }
+        .image:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        } */
+
+
+        /* Grayscale to Color
+        .image {
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+        .image:hover {
+            filter: grayscale(0%);
+        } */
+
+        /* Tilt Effect
+        .image {
+            transition: transform 0.3s ease;
+        }
+        .image:hover {
+            transform: rotate(3deg) translateY(-5px);
+        } */
+
+
+        /* Overlay with Transition
+        .image-container {
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .image-container:hover .overlay {
+            opacity: 1;
+        } */
+
+        .image-container {
+            perspective: 1000px;
+            /* Optional for a more 3D feel */
+            overflow: hidden;
+            /* Ensures the image doesn't overflow the container */
+        }
+
+        .image {
+            display: block;
+            /* Ensures no extra space around the image */
+            opacity: 0;
+            transform: scale(0.5);
+            /* Starts smaller */
+            transition: transform 1s ease, opacity 1s ease;
+            /* Smooth transition */
+        }
+
+        .image.visible {
+            opacity: 1;
+            /* Fade in */
+            transform: scale(1);
+            /* Expand to original size */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image effects</h1>
+
+    <div class="image-container">
+        <img src="assets/photos/carousel-photo-1.webp" class="image overlay" alt="" srcset="">
+    </div>
+
+    <script>
+        setTimeout(function () { document.querySelector('.image').classList.add('visible') }, 500);
+    </script>
+</body>
+
+</html>

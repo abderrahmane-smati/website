@@ -165,7 +165,19 @@ body {
 }
 
 /* ***************************************** Fade */
-.estomper-div {
+.estomper-bas-50-s-075 {
+  transform: translateY(50px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.estomper-haut-50-s-075 {
+  transform: translateY(-50px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.estomper-fin {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* .estomper-div {
   transform: translateY(50px);
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
@@ -180,7 +192,7 @@ body {
 .estomper-div-inv-fin {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 /* ***************************************** Fade (end) */
 
 .un-filtre.highlight {
@@ -199,6 +211,7 @@ body {
 
 .bouton-rouge {
   background-color: #ff0000;
+  color: white;
   /* font-weight: bold; */
   /* font-size: larger; */
 }
@@ -218,4 +231,11 @@ body {
 
 .my-small {
   font-size: 0.775em;
+}
+
+.span-texte-1 {
+  color: white;
+}
+.span-texte-2 {
+  color: gray;
 }
