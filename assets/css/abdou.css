@@ -74,9 +74,18 @@ body {
 
 
 /* ************** LOGO */
+/* .logo {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 30px;
+  height: auto;
+  margin-right: 1rem;
+  transition: transform 2.5s ease-in-out;
+  animation: grandir 1.5s ease-in-out 0.5s infinite alternate;
+} */
 .logo {
   width: 30px;
-  /* Default width */
   height: auto;
   margin-right: 1rem;
   transition: transform 2.5s ease-in-out;
@@ -109,13 +118,13 @@ body {
   transition: transform 2.5s ease-in-out;
 }
 
-[data-bs-theme="dark"] #logo-light {
+/* [data-bs-theme="dark"] #logo-light {
   display: none;
 }
 
 [data-bs-theme="light"] #logo-dark {
   display: none;
-}
+} */
 
 /* ************** LOGO (end) */
 
@@ -177,23 +186,39 @@ body {
   display: none;
   position: fixed;
   bottom: 70px;
-  right: 25px;
+  left: 50%;
+  /* right: 25px; */
+  width: 4rem;
+  height: 4rem;
   /* padding: 3px 6px; */
   /* border-radius: 4px; */
   /* border-radius: 50%; */
   z-index: 999;
   cursor: pointer;
   /* box-shadow: 4px 4px gray; */
-  background-color: var(--bs-btn-bg);
+  /* background-color: var(--bs-btn-bg); */
+  background-color: rgb(26,26,26);
+  border: none;
+  border-radius: 50%;
 }
 
 #goTopBtn span {
   font-weight: bold;
   /* font-size: x-large; */
+  color:#ff0000;
 }
 
-#goTopBtn:hover {
+/* #goTopBtn:hover {
   filter: invert(1);
+} */
+
+[data-bs-theme="dark"] #goTopBtn:hover {
+  /* filter: invert(1); */
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+}
+[data-bs-theme="light"] #goTopBtn:hover {
+  /* filter: invert(1); */
+  box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
 }
 
 /* ************************** GoTop Button (end) */
@@ -265,6 +290,13 @@ body {
   color: #ff0000;
 }
 
+.bouton-rouge a {
+  color: white;
+}
+.bouton-rouge:hover a {
+  color: #ff0000;
+}
+
 .expertise {
   /* height: 400px; */
 }
@@ -322,10 +354,49 @@ body {
 .my-fs-1 {
   font-size: 5vw;
 }
+.my-fs-1b {
+  font-size: 4.5vw;
+}
 .my-fs-2 {
   font-size: 4vw;
 }
+.my-fs-2b {
+  font-size: 3.5vw;
+}
+.my-fs-3 {
+  font-size: 3vw;
+}
+.my-fs-3b {
+  font-size: 2.5vw;
+}
+.my-fs-4 {
+  font-size: 2vw;
+}
+.my-fs-4b {
+  font-size: 1.5vw;
+}
+.my-fs-5 {
+  font-size: 1vw;
+}
+.my-fs-5b {
+  font-size: 0.5vw;
+}
 
+
+.design-visuel {
+  background-color: rgb(54, 54, 54);
+  transform: translateY(0);
+  transition: transform 0.5s ease;
+  /* box-shadow: 0 12px 30px rgba(250, 5, 5, 0.596) !important;  */
+}
+
+.design-visuel:hover {
+  background-color: white;
+  transform: translateY(-20px);
+  transition: transform 0.5s ease;
+  /* box-shadow: 0 12px 30px rgba(0, 0, 0, 0.596) !important; 
+  transition: transform 0.5s ease, box-shadow 0.3s ease; */
+}
 
 .design-visuel h3 {
   color: #ff0000;
@@ -337,8 +408,15 @@ body {
   color: black;
 }
 
-.design-visuel:hover {
-  background-color: white;
-  transform: translateY(-20px);
-  transition: transform 0.5s ease;
+
+  /* .navbar-toggler:hover {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width) !important;
+  } */
+
+.navbar-collapse.show {
+  background-color: rgba(29, 29, 29, 0.9);
+  border-radius: 5px;
+  margin-top: 5px;
 }

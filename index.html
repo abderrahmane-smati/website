@@ -36,7 +36,7 @@
 
 </head>
 
-<body>
+<body style="margin-top: 86px;">
 
   <!-- <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="check2" viewBox="0 0 16 16">
@@ -55,8 +55,8 @@
   </svg> -->
 
   <!-- * ************************ Go-Top Button -->
-  <button id="goTopBtn" class="btn btnprimary btn-bd-primary">
-    <span class="bi bi-arrow-up"></span>
+  <button id="goTopBtn" class="btn btn-primary btn-bd-primary">
+    <span class="bi bi-chevron-up " style="fontsize: 150%;"></span>
   </button>
 
 
@@ -115,14 +115,17 @@
 
 
   <!-- * ****************************** NAVBAR -->
-  <nav id="navbarre" class="navbar navbar-expand-lg bg-black rounded fixed-top estomper-haut-50-s-075" aria-label="Eleventh navbar example">
+  <!-- <img id="logo" class="logo img-fluid" src="assets/photos/logo-abdou-simple-removebg.png" alt="logo" srcset=""> -->
+
+  <nav id="navbarre" class="navbar navbar-expand-sm navbar-dark bg-black rounded fixed-top estomperhaut-50-s-075" aria-label="Eleventh navbar example">
     <div class="container-fluid">
       <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+
       <img id="logo" class="logo img-fluid" src="assets/photos/logo-abdou-simple-removebg.png" alt="logo" srcset="">
-      <!-- <img id="logo-light" class="logo img-fluid" src="assets/photos/LOGO-Black.png" alt="logo" srcset="">
-          <img id="logo-dark" class="logo img-fluid" src="assets/photos/LOGO-White.png" alt="logo" srcset=""> -->
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <span class="bi bi-list" style="font-size: 150%;"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarExample">
@@ -132,7 +135,7 @@
             <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link" href="#">Bio</a>
+            <a class="nav-link" href="#me-bio">Bio</a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link" href="#">Portfolio</a>
@@ -167,7 +170,7 @@
   <!-- ^ ********************************************* MAIN -->
 
   <!-- <h1 CLASS="text-white">EXEMPLE</h1> -->
-  <div id="separateurPourNavBar" style="height: 86px;"></div>
+  <!-- <div id="separateurPourNavBar" style="height: 86px;"></div> -->
 
 
   <main class="container-fluid p-0 m-0" id="main">
@@ -311,9 +314,9 @@
     <!-- * ************************************** CARDS  -->
 
 
-    <div class="container-fluid p-3 mx-0 py-5 image-de-fond-35" id="custom-cards">
-      <h2 class="pb-2 borderbottom text-light my-fs-2 estomper-gauche-250-s-075">VISUAL DESIGN</h2>
-      <p class="fs-3">Explore my creative journey in design, from unique branding projects to web interface design, and marketing visuals.</p>
+    <div class="container-fluid text-light p-3 mx-0 py-5 image-de-fond-35" id="custom-cards">
+      <h2 class="pb-2 borderbottom my-fs-2 estomper-gauche-250-s-075">VISUAL DESIGN</h2>
+      <p class="my-fs-3">Explore my creative journey in design, from unique branding projects to web interface design, and marketing visuals.</p>
       <button type="button" class="btn bouton-rouge fw-bold fs-sm-5 fs-md-3 fs-5 px-4">Explore</button>
     </div>
 
@@ -380,19 +383,58 @@
     <!-- * ************************************** CARDS 2  -->
 
 
-    <div class="container-fluid p-3 mx-0 py-5 image-de-fond-35" id="custom-cards">
-      <h2 class="pb-2 borderbottom text-light my-fs-2 estomper-gauche-250-s-075">VIDEOGRAPHY</h2>
-      <p class="fs-3">Explore my creative journey in videography, from video production, to video editing and motion graphics.</p>
+    <div class="container-fluid text-light p-3 mx-0 py-5 image-de-fond-35" id="custom-cards">
+      <h2 class="pb-2 borderbottom my-fs-2 estomper-gauche-250-s-075">VIDEOGRAPHY</h2>
+      <p class="my-fs-3">Explore my creative journey in videography, from video production, to video editing and motion graphics.</p>
       <button type="button" class="btn bouton-rouge fw-bold fs-sm-5 fs-md-3 fs-5 px-4">Explore</button>
     </div>
 
-    <div class="m-3">
-
+    <!-- <div class="m-3">
       <video autoplay muted loop width="100%">
+        <source src="assets/photos/video-voiture.mp4" type="video/mp4">
+        < !-- Your browser does not support the video tag. -- >
+    </video>
+    </div> -->
+
+    <div class="m-3" style="max-height: 392px; overflow: hidden;">
+      <video autoplay muted loop style="width: 100%; height: auto; position: relative; top: 50%; transform: translateY(-50%);">
         <source src="assets/photos/video-voiture.mp4" type="video/mp4">
         <!-- Your browser does not support the video tag. -->
       </video>
     </div>
+
+
+
+    <!-- ********************** ABOUT ME -->
+    <div id="me-bio"></div>
+
+    <div style="height: 70px;"></div> <!-- Spacer -->
+
+    <div id="mebio" class="container-fluid text-light p-3 mx-0 py-5">
+
+      <div class="row row-cols-1 row-cols-md-2">
+
+        <div class="col image-de-fond">
+          <h2 class="pb-2 borderbottom my-fs-2 estomper-gauche-250-s-075">ABOUT ME</h2>
+          <p class="my-fs-4">A creative expert with more than 6 years of experience, I've had the opportunity to contribute to projects across diverse sectors and collaborate with different brands.</p>
+          <p class="my-fs-4">I derive immense satisfaction from transforming innovative ideas into captivating designs, visuals, and campaigns that not only enhance brand visibility but also cultivate authentic interactions.#Aberrahmane's Portfolio</p>
+          <button type="button" class="btn bouton-rouge fw-bold fs-sm-5 fs-md-3 fs-5 px-4">Curriculum Vitae</button>
+          <button type="button" class="btn bouton-rouge fw-bold fs-sm-5 fs-md-3 fs-5 px-4">Academic case study</button>
+        </div>
+
+        <div class="col">
+          <img id="me-photo" src="./assets/photos/me.webp" class="d-block w-100 img-fluid mxauto" alt="" srcset="">
+        </div>
+
+      </div>
+
+    </div>
+
+    <button type="button" class="btn bouton-rouge fw-bold fs-sm-5 fs-md-3 fs-5 px-4 w-100">
+      <a href="https://wa.me/+213662452375" target="_blank" style="text-decoration: none;" aria-disabled="false">
+        Let's chat
+      </a>
+    </button>
 
 
     <!-- **************************************** indicateurs  -->
