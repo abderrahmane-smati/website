@@ -31,7 +31,8 @@ body {
   padding-left: 10px;
 }
 
-.image-de-fond {
+.image-de-fond, 
+.image-de-fond-cover {
   /* width: 100%;
   height: auto; */
   background-image: url("../../assets/photos/point-rouge.png");
@@ -40,33 +41,72 @@ body {
   background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
+.image-de-fond-contain {
+  background-image: url("../../assets/photos/point-rouge.png");
+  background-size: contain;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+.image-de-fond-25 {
+  background-image: url("../../assets/photos/point-rouge.png");
+  background-size: 25%;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+.image-de-fond-35 {
+  background-image: url("../../assets/photos/point-rouge.png");
+  background-size: 35%;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+.image-de-fond-50 {
+  background-image: url("../../assets/photos/point-rouge.png");
+  background-size: 50%;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+.image-de-fond-75 {
+  background-image: url("../../assets/photos/point-rouge.png");
+  background-size: 75%;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+
 /* ************** LOGO */
 .logo {
-  width: 40px;
+  width: 30px;
   /* Default width */
   height: auto;
   margin-right: 1rem;
   transition: transform 2.5s ease-in-out;
+  animation: grandir 1.5s ease-in-out 0.5s infinite alternate;
 }
 
-.logo:hover {
-  transform: rotate(360deg);
-  /* transform: rotate(180deg); */
-  transition: transform 2.5s ease-in-out;
+@keyframes grandir {
+  to {
+    transform: scale(1.2);
+  }
 }
 
 @media (min-width: 600px) {
   .logo {
-    width: 50px;
+    width: 40px;
     /* for screens wider than 600px */
   }
 }
 
 @media (min-width: 900px) {
   .logo {
-    width: 70px;
+    width: 50px;
     /* for screens wider than 900px */
   }
+}
+
+.logo:hover {
+  transform: rotate(360deg);
+  /* transform: rotate(180deg); */
+  transition: transform 2.5s ease-in-out;
 }
 
 [data-bs-theme="dark"] #logo-light {
@@ -173,6 +213,10 @@ body {
   transform: translateY(-50px);
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
+.estomper-gauche-250-s-075 {
+  transform: translateX(-250px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
 .estomper-fin {
   opacity: 1;
   transform: translateY(0);
@@ -195,10 +239,10 @@ body {
 } */
 /* ***************************************** Fade (end) */
 
-.un-filtre.highlight {
+/* .un-filtre.highlight {
   border: 10px solid #ff9900;
   /* background-color: #e7f0ff; */
-}
+} */
 
 .nav-item {
   font-size: large;
@@ -238,4 +282,63 @@ body {
 }
 .span-texte-2 {
   color: gray;
+}
+.span-texte-1,
+.span-texte-2 {
+  font-weight: 600;
+  font-size: 5vw;
+}
+
+/* * --- */
+.carousel-conteneur {
+  perspective: 1000px;
+  /* Optional for a more 3D feel */
+  overflow: hidden;
+  /* Ensures the image doesn't overflow the container */
+}
+
+#premiereImageDuCarousel {
+  display: block;
+  /* Ensures no extra space around the image */
+  opacity: 0;
+  transform: scale(0.5);
+  /* Starts smaller */
+  transition: transform 1s ease, opacity 1s ease;
+  /* Smooth transition */
+}
+
+#premiereImageDuCarousel.visible {
+  opacity: 1;
+  /* Fade in */
+  transform: scale(1);
+  /* Expand to original size */
+}
+
+/* .carousel-item {
+  width: 632px;
+  height: 394px;
+} */
+
+.my-fs-1 {
+  font-size: 5vw;
+}
+.my-fs-2 {
+  font-size: 4vw;
+}
+
+
+.design-visuel h3 {
+  color: #ff0000;
+}
+.design-visuel p {
+  color: white;
+}
+.design-visuel:hover p {
+  color: black;
+}
+
+.design-visuel:hover {
+  background-color: white;
+  transform: translateY(-20px);
+  transition: transform 0.5s ease;
 }

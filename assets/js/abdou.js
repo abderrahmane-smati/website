@@ -21,7 +21,7 @@ goTopBtn.addEventListener("click", function () {
 
 // ***************************************** Fade 
 document.addEventListener('DOMContentLoaded', function () {
-    const estomperDivs = document.querySelectorAll('.estomper-bas-50-s-075, .estomper-haut-50-s-075');
+    const estomperDivs = document.querySelectorAll('.estomper-bas-50-s-075, .estomper-haut-50-s-075, .estomper-gauche-250-s-075');
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
