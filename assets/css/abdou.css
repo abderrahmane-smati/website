@@ -1,3 +1,10 @@
+:root {
+  --my-fixed-size: 0.25rem;
+  --my-fs-max-variable-size: 3vw;
+  --my-fs-offset-size: 0.25vw;
+}
+
+
 html {
   overflow: hidden;
   /* Prevent default scrolling */
@@ -185,7 +192,7 @@ body {
 #goTopBtn {
   display: none;
   position: fixed;
-  bottom: 70px;
+  bottom: 20px;
   left: 50%;
   /* right: 25px; */
   width: 4rem;
@@ -297,6 +304,13 @@ body {
   color: #ff0000;
 }
 
+.bouton-reseaux-sociaux {
+  /* color: rgb(0,0,238); */
+}
+.bouton-reseaux-sociaux span {
+  color: #ff0000;
+}
+
 .expertise {
   /* height: 400px; */
 }
@@ -315,11 +329,11 @@ body {
 .span-texte-2 {
   color: gray;
 }
-.span-texte-1,
+/* .span-texte-1,
 .span-texte-2 {
   font-weight: 600;
   font-size: 5vw;
-}
+} */
 
 /* * --- */
 .carousel-conteneur {
@@ -351,36 +365,45 @@ body {
   height: 394px;
 } */
 
+/* ^ **************** My responsive font sizes */
 .my-fs-1 {
-  font-size: 5vw;
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size));
 }
 .my-fs-1b {
-  font-size: 4.5vw;
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - var(--my-fs-offset-size));
 }
 .my-fs-2 {
-  font-size: 4vw;
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (2 * var(--my-fs-offset-size)));
+  font-size: calc(0.25rem + 4vw - 0.5vw);
 }
 .my-fs-2b {
-  font-size: 3.5vw;
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (3 * var(--my-fs-offset-size)));
 }
 .my-fs-3 {
-  font-size: 3vw;
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (4 * var(--my-fs-offset-size)));
 }
 .my-fs-3b {
-  font-size: 2.5vw;
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (5 * var(--my-fs-offset-size)));
 }
 .my-fs-4 {
-  font-size: 2vw;
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (6 * var(--my-fs-offset-size)));
 }
 .my-fs-4b {
-  font-size: 1.5vw;
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (7 * var(--my-fs-offset-size)));
 }
 .my-fs-5 {
-  font-size: 1vw;
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (8 * var(--my-fs-offset-size)));
 }
 .my-fs-5b {
-  font-size: 0.5vw;
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (9 * var(--my-fs-offset-size)));
 }
+.my-fs-6 {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (10 * var(--my-fs-offset-size)));
+}
+.my-fs-6b {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (11 * var(--my-fs-offset-size)));
+}
+/* ^ **************** My responsive font sizes (end) */
 
 
 .design-visuel {
