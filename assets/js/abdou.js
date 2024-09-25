@@ -19,7 +19,7 @@ goTopBtn.addEventListener("click", function () {
 // ***************************************** GoTop Button (end)
 
 
-// ***************************************** Fade 
+// ***************************************** Fade (estomper) 
 document.addEventListener('DOMContentLoaded', function () {
     const estomperDivs = document.querySelectorAll('.estomper-bas-50-s-075, .estomper-haut-50-s-075, .estomper-gauche-250-s-075');
 
@@ -107,7 +107,7 @@ const aUneClasseCommencantPar = (element, prefixe) => {
 //     checkScroll();
 //     window.addEventListener('scroll', checkScroll);
 // });
-// ***************************************** Fade (end)
+// ***************************************** Fade (estomper) (end)
 
 
 

@@ -460,7 +460,7 @@ body {
 .design-visuel:hover {
   background-color: white;
   transform: translateY(-20px);
-  transition: transform 0.5s ease;
+  /* transition: transform 0.5s ease; */
   /* box-shadow: 0 12px 30px rgba(0, 0, 0, 0.596) !important; 
   transition: transform 0.5s ease, box-shadow 0.3s ease; */
 }
