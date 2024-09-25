@@ -261,9 +261,13 @@ body {
   transform: translateX(-250px);
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
-.estomper-fin {
+.estomper-horizental-fin {
   opacity: 1;
-  transform: translateX(0) translateY(0);
+  transform: translateX(0);
+}
+.estomper-vertical-fin {
+  opacity: 1;
+  transform: translateY(0);
 }
 /* .estomper-div {
   transform: translateY(50px);

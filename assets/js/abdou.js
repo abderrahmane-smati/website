@@ -26,7 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('estomper-fin');
+                if (aUneClasseCommencantPar(entry.target, 'estomper-gauche')) {
+                    entry.target.classList.add('estomper-horizental-fin');
+                } else {
+                    entry.target.classList.add('estomper-vertical-fin');
+                };
                 // Optionally unobserve after the effect is applied
                 observer.unobserve(entry.target);
             }
