@@ -80,6 +80,12 @@ body {
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Prevent the image from repeating */
 }
+.image-de-fond-100 {
+  background-image: url("../../assets/photos/point-rouge.png");
+  background-size: 100%;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
 
 
 /* ************** LOGO */
@@ -229,11 +235,11 @@ body {
 
 [data-bs-theme="dark"] #goTopBtn:hover {
   /* filter: invert(1); */
-  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
 }
 [data-bs-theme="light"] #goTopBtn:hover {
   /* filter: invert(1); */
-  box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* ************************** GoTop Button (end) */
@@ -515,3 +521,21 @@ body {
   text-shadow: 2px 2px 2px #c5c5c5;
   /* box-shadow: 8px 8px 8px rgba(255, 255, 255, 0.5); */
 }
+
+/* #navbarre:hover {
+  box-shadow: 8px 8px 8px #ff0000;
+} */
+
+.nav-link:hover {
+  color: #ff0000;
+  font-weight: 500;
+}
+
+#me-photo {
+  transition: transform 0.5s ease;
+}
+#me-photo:hover {
+  transform: scale(1.1);
+  /* transition: transform 0.5s ease; */
+}
+
