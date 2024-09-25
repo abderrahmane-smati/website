@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image effects</title>
+
+    <style>
+        .image {
+            transform: translateY(50%);
+            transition: transform 1s ease;
+        }
+
+        .image.visible {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image effects</h1>
+
+    <div class="image-container">
+        <img src="assets/photos/carousel-photo-1.webp" class="image" alt="" srcset="">
+    </div>
+
+    <h1>AUTRE</h1>
+
+    <div class="image-container">
+        <img src="assets/photos/carousel-photo-2.webp" alt="" srcset="">
+    </div>
+
+    <h1>TEXTE</h1>
+
+    <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quas, odit sint autem tenetur odio. Aliquid eaque iure reiciendis voluptates porro, facere adipisci deleniti nemo! Magni possimus assumenda quae voluptate.</span><span>Dolore earum quibusdam, at blanditiis ipsum laudantium nam similique delectus. Inventore aliquid eveniet praesentium? Rem cum sint molestiae numquam optio iusto, saepe iure assumenda labore nulla eaque corporis accusamus illo.</span><span>Eius commodi eum cupiditate quod temporibus voluptates sit, veritatis maiores aspernatur minima adipisci, laboriosam nobis ullam. Magnam doloremque iste, eos consequuntur autem quae vero, similique cumque itaque ut eligendi alias.</span><span>Voluptatem qui accusamus quod ipsum tempora officia ad nesciunt suscipit accusantium doloremque sit minus fuga, deleniti blanditiis? A maxime rerum, quasi aliquid tempore libero fuga ut esse? Porro, iste exercitationem!</span><span>Debitis illum eaque excepturi ab architecto rerum, unde facilis cumque porro perspiciatis sapiente nisi eligendi suscipit iure nihil! Temporibus vel iure quo ab pariatur aspernatur doloremque, facere perspiciatis sunt sapiente.</span><span>Enim nulla facilis quasi in quaerat nemo aliquid, aperiam explicabo quos nobis repellendus similique neque. Dicta fuga earum quibusdam sed magni qui accusamus, voluptas quod cupiditate quisquam, vel est ullam!</span><span>Eius adipisci eaque, necessitatibus expedita repellat iure nulla eum, maiores velit ut eveniet, perferendis magni at voluptate? Eius iusto magnam tenetur minima deleniti, inventore animi perspiciatis ratione consectetur maiores! Tenetur?</span><span>Explicabo quo magnam facere facilis ducimus soluta, dolores quis maiores minima illo ratione sit iure ad earum quia aut, sunt blanditiis quod maxime quas? Voluptate eos accusantium labore minima incidunt!</span><span>Deleniti delectus quam id nostrum magni atque cupiditate obcaecati, vitae eos autem quae recusandae cumque at quidem rem? Neque quo saepe nostrum doloremque natus nisi placeat minus praesentium unde. Temporibus.</span><span>Corrupti quaerat voluptates natus velit vitae nemo corporis exercitationem dolor excepturi eos soluta, sit eveniet architecto. Minus corporis non tempore architecto doloribus explicabo, enim, rem dicta sed et ut beatae?</span></p>
+
+    <script>
+        setTimeout(function () { document.querySelector('.image').classList.add('visible') }, 500);
+    </script>
+</body>
+
+</html>

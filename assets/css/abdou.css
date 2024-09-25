@@ -1,7 +1,9 @@
 :root {
-  --my-fixed-size: 0.25rem;
-  --my-fs-max-variable-size: 3vw;
-  --my-fs-offset-size: 0.25vw;
+  --my-fixed-size: 0.5rem;
+  /* --my-fixed-size: 0.25rem; */
+  --my-fs-max-variable-size: 4vw;
+  --my-fs-offset-size: 0.2vw;
+  /* --my-fs-offset-size: 0.25vw; */
 }
 
 
@@ -98,6 +100,10 @@ body {
   transition: transform 2.5s ease-in-out;
   animation: grandir 1.5s ease-in-out 0.5s infinite alternate;
 }
+.logo-2 {
+  max-width: 60px;
+  height: auto;
+}
 
 @keyframes grandir {
   to {
@@ -119,11 +125,13 @@ body {
   }
 }
 
-.logo:hover {
+/* .logo:hover {
+  ça ne marche pas avec l'autre effect "animation: ..."
+  animation: none;
+  transition: none;
   transform: rotate(360deg);
-  /* transform: rotate(180deg); */
   transition: transform 2.5s ease-in-out;
-}
+} */
 
 /* [data-bs-theme="dark"] #logo-light {
   display: none;
@@ -193,7 +201,7 @@ body {
   display: none;
   position: fixed;
   bottom: 20px;
-  left: 50%;
+  left: calc(50% - 2rem);
   /* right: 25px; */
   width: 4rem;
   height: 4rem;
@@ -238,20 +246,24 @@ body {
 
 /* ***************************************** Fade */
 .estomper-bas-50-s-075 {
-  transform: translateY(50px);
+  opacity: 0;
+  transform: translateY(50%);
+  /* transform: translateY(50px); */
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
 .estomper-haut-50-s-075 {
-  transform: translateY(-50px);
+  opacity: 0;
+  transform: translateY(-50%);
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
 .estomper-gauche-250-s-075 {
+  opacity: 0;
   transform: translateX(-250px);
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
 .estomper-fin {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0) translateY(0);
 }
 /* .estomper-div {
   transform: translateY(50px);
@@ -305,10 +317,11 @@ body {
 }
 
 .bouton-reseaux-sociaux {
-  /* color: rgb(0,0,238); */
+  background-color: rgb(26, 26, 26);
 }
 .bouton-reseaux-sociaux span {
   color: #ff0000;
+  font-size: larger;
 }
 
 .expertise {
@@ -372,36 +385,63 @@ body {
 .my-fs-1b {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - var(--my-fs-offset-size));
 }
-.my-fs-2 {
+.my-fs-1t {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (2 * var(--my-fs-offset-size)));
   font-size: calc(0.25rem + 4vw - 0.5vw);
 }
-.my-fs-2b {
+.my-fs-2 {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (3 * var(--my-fs-offset-size)));
 }
-.my-fs-3 {
+.my-fs-2b {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (4 * var(--my-fs-offset-size)));
 }
-.my-fs-3b {
+.my-fs-2t {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (5 * var(--my-fs-offset-size)));
 }
-.my-fs-4 {
+.my-fs-3 {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (6 * var(--my-fs-offset-size)));
 }
-.my-fs-4b {
+.my-fs-3b {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (7 * var(--my-fs-offset-size)));
 }
-.my-fs-5 {
+.my-fs-3t {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (8 * var(--my-fs-offset-size)));
 }
-.my-fs-5b {
+.my-fs-4 {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (9 * var(--my-fs-offset-size)));
 }
-.my-fs-6 {
+.my-fs-4b {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (10 * var(--my-fs-offset-size)));
 }
-.my-fs-6b {
+.my-fs-4t {
   font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (11 * var(--my-fs-offset-size)));
+}
+.my-fs-5 {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (12 * var(--my-fs-offset-size)));
+}
+.my-fs-5b {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (13 * var(--my-fs-offset-size)));
+}
+.my-fs-5t {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (14 * var(--my-fs-offset-size)));
+}
+.my-fs-6 {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (15 * var(--my-fs-offset-size)));
+}
+.my-fs-6b {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (16 * var(--my-fs-offset-size)));
+}
+.my-fs-6t {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (17 * var(--my-fs-offset-size)));
+}
+.my-fs-7 {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (18 * var(--my-fs-offset-size)));
+}
+.my-fs-7b {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (19 * var(--my-fs-offset-size)));
+}
+.my-fs-7t {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (20 * var(--my-fs-offset-size)));
 }
 /* ^ **************** My responsive font sizes (end) */
 
@@ -439,7 +479,8 @@ body {
   } */
 
 .navbar-collapse.show {
-  background-color: rgba(29, 29, 29, 0.9);
+  /* background-color: rgba(29, 29, 29, 0.9); */
+  background-color: rgb(26, 26, 26);
   border-radius: 5px;
   margin-top: 5px;
 }
