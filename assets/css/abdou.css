@@ -258,7 +258,7 @@ body {
 }
 .estomper-gauche-250-s-075 {
   opacity: 0;
-  transform: translateX(-250px);
+  transform: translateX(-50px);
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
 .estomper-horizental-fin {
