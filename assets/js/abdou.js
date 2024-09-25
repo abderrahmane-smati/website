@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const aUneClasseCommencantPar = (element, prefixe) => {
+    // console.log(element.classList);
     return Array.from(element.classList).some(className => className.startsWith(prefixe));
 };
 

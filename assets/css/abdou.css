@@ -488,3 +488,30 @@ body {
   border-radius: 5px;
   margin-top: 5px;
 }
+
+
+.div-contacts {
+  font-size: calc(var(--my-fixed-size) + var(--my-fs-max-variable-size) - (17 * var(--my-fs-offset-size)));
+  border-top: solid 1px #ff000080;
+  /* border-top: solid 1px rgb(52, 54, 56); */
+  color:#ff0000;
+  /* border-top: solid 1px rgb(108, 117, 125); */
+  /* color: grey; */
+  /* color: #333638; */
+  /* color: #eaeaea; */
+  /* color: rgb(108, 117, 125); */
+  
+  /* text-shadow: 0.35px 0.35px rgb(201, 199, 199); */
+  /* text-shadow: 1px 1px #b3afaf; */
+  /* text-shadow: 1px 1px 0px #eaeaea; */
+  /* text-shadow: 1px 1px 2px #c5c5c5; */
+}
+
+.text-avec-ombre-1 {
+  text-shadow: 1px 1px 1px #c5c5c5;
+  /* box-shadow: 8px 8px 8px rgba(255, 255, 255, 0.5); */
+}
+.text-avec-ombre-2 {
+  text-shadow: 2px 2px 2px #c5c5c5;
+  /* box-shadow: 8px 8px 8px rgba(255, 255, 255, 0.5); */
+}
