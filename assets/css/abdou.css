@@ -539,3 +539,21 @@ body {
   transform: scale(1.1);
   /* transition: transform 0.5s ease; * /
 } */
+
+
+
+/* .responsive-div {
+    height: 10vh; /* 20% of the viewport height * /
+}
+
+@media (min-width: 768px) {
+    .responsive-div {
+        height: 30vh; /* 40% of the viewport height on larger screens * /
+    }
+}
+
+@media (min-width: 1024px) {
+    .responsive-div {
+        height: 50vh; /* 60% of the viewport height on even larger screens * /
+    }
+} */
