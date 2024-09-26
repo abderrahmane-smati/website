@@ -233,14 +233,15 @@ body {
   filter: invert(1);
 } */
 
-[data-bs-theme="dark"] #goTopBtn:hover {
-  /* filter: invert(1); */
+#goTopBtn:hover {
+  box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
+}
+/* [data-bs-theme="dark"] #goTopBtn:hover {
   box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
 }
 [data-bs-theme="light"] #goTopBtn:hover {
-  /* filter: invert(1); */
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
-}
+} */
 
 /* ************************** GoTop Button (end) */
 
