@@ -92,17 +92,34 @@
 
   <main class="container-fluid p-0 m-0" id="main">
 
-    <img src="assets/photos/projet-01-presentation.png" class="img-fluid" alt="project-1" srcset="">
 
+    <div class="position-relative" style="width: 100%; max-width: 2100px; height: auto;">
+      <!-- Large Background Image -->
+      <img src="assets/photos/projet-01-presentation.png" class="img-fluid" alt="Large Background Image">
 
-    <div class="video-container text-center mt-5">
-      <iframe class="box-shadow-full" width="560" height="315" src="https://www.youtube.com/embed/l__28KmjHfI" frameborder="0" allowfullscreen></iframe>
+      <!-- Clickable Overlay with YouTube Video -->
+      <div
+           class="position-absolute"
+           style="
+               top: 71.17%;   /* (2621 / 3682) * 100 -> Adjusted based on large image */
+               left: 12.43%;  /* (261 / 2100) * 100 -> Adjusted based on large image */
+               width: 76.24%; /* (1601 / 2100) * 100 -> Adjusted based on large image */
+               height: 25.13%; /* (925 / 3682) * 100 -> Adjusted based on large image;">
+        <div class="video-container text-center w-100 h-100">
+          <iframe
+                  class="w-100 h-100 box-shadow-full"
+                  src="https://www.youtube.com/embed/l__28KmjHfI"
+                  frameborder="0"
+                  allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
     </div>
 
 
 
     <!-- * ******************************** FOOTER -->
-
 
     <footer class="pt-4 bordertop">
       <!-- <div class="row row-cols-1 row-cols-md-2 text-light ms-1">

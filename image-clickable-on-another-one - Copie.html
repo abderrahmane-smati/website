@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image-on-another</title>
+    <!-- <link rel="stylesheet" href="styles.css"> Link to your CSS file -->
+
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <h1>Image on another</h1>
+
+
+    <div style="position: relative; width: 2100px; height: 3682px;">
+        <!-- Large Background Image -->
+        <img src="assets/photos/projet-01-presentation.png" width="2100" height="3682" style="display: block;" class="img-fluid">
+
+        <!-- Clickable Overlay Image -->
+        <a href="https://example.com"
+           style="position: absolute; 
+            top: 2621px;  /* Adjust the top position */
+            left: 261px; /* Adjust the left position */
+            width: 1601px; 
+            height: 925px;">
+            <img src="assets/photos/projet-01-clickable.png"
+                 width="1601"
+                 height="925"
+                 style="width: 100%; height: 100%; display: block;"
+                 class="img-fluid">
+        </a>
+    </div>
+
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
