@@ -13,15 +13,27 @@
         }
 
         /* Optionally, you can specify different cursors for different elements */
-        h1 {
+        h1,
+        iframe,
+        .video-container {
             cursor: url('assets/photos/hand-good.png'), pointer;
         }
     </style>
 </head>
 
 <body>
+
     <h1>Hover over this area to see the custom cursor!</h1>
     <p>Move your mouse around this page to see the custom cursor image.</p>
+
+    <br>
+
+    <div class="video-container">
+        <iframe class="box-shadow-full" width="560" height="315"
+                src="https://www.youtube.com/embed/l__28KmjHfI" frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+
 </body>
 
 </html>
