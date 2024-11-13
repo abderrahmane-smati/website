@@ -33,6 +33,12 @@
   <link href="assets/css/features.css" rel="stylesheet">
   <link href="assets/css/bootstrap-template-style.css" rel="stylesheet">
 
+  <!-- <style>
+    img {
+      cursor: url('assets/photos/hand-click.png'), pointer;
+    }
+  </style> -->
+
 
 </head>
 
@@ -110,6 +116,7 @@
                   class="w-100 h-100 box-shadow-full"
                   src="https://www.youtube.com/embed/l__28KmjHfI"
                   frameborder="0"
+                  id="youtube-video"
                   allowfullscreen>
           </iframe>
         </div>
@@ -122,13 +129,7 @@
     <!-- * ******************************** FOOTER -->
 
     <footer class="pt-4 bordertop">
-      <!-- <div class="row row-cols-1 row-cols-md-2 text-light ms-1">
-        <div class="col d-flex align-items-center">
-          <img class="logo-2 img-fluid my-0 py-0 me-3" src="assets/photos/smati-abderrahmane-logo-white.png" alt="logo" srcset="">
-          <label class="my-fs-3b fw-bold text-avec-ombre-2">ABDERRAHMANE SMATI</label>
-        </div>
-        <div class="col my-fs-6b d-flex align-items-center justify-content-end pe-3">&copy; 2024 ALL RIGHTS RESERVED</div>
-      </div> -->
+
 
       <div class="row row-cols-1 row-cols-sm-3 div-contacts textsecondary text-center ms-3 mt-5 pt-3">
         <div class="col">
@@ -164,30 +165,6 @@
     });
 
     setTimeout(function () { document.getElementById('premiereImageDuCarousel').classList.add('visible') }, 500);
-
-
-    // ***************************************** Fade 
-    // document.addEventListener('DOMContentLoaded', function () {
-    //   const estomperDivs = document.querySelectorAll('.estomper-div');
-
-    //   const observer = new IntersectionObserver(entries => {
-    //     entries.forEach(entry => {
-    //       if (entry.isIntersecting) {
-    //         entry.target.classList.add('estomper-vertical-fin');
-    //         // Optionally unobserve after the effect is applied
-    //         observer.unobserve(entry.target);
-    //       }
-    //     });
-    //   }, {
-    //     threshold: 0.25 // Adjust as needed (when 25% of the element is visible)
-    //   });
-
-    //   estomperDivs.forEach(div => {
-    //     observer.observe(div);
-    //   });
-    // });
-// ***************************************** Fade (end)    
-
   </script>
 
 </body>
