@@ -107,22 +107,56 @@
       <div class="row row-cols-1 align-items-stretch g-4 py-5">
         <!-- <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"> -->
 
+        <!-- ^ PROJECT 1 -->
         <div class="col estomper-bas-50-s-075 projet-portfolio p-0 image-de-fond-35">
-          <a href="portfolio-projet-01.html">
-            <img src="assets/photos/projet-01-pg.png" class="img-fluid" alt="project-1" srcset="">
-          </a>
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio-projet-01.html">
+              <img src="assets/photos/projet-01-pg.png" class="img-fluid" alt="WORKOUT IN GYM">
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <!-- Overlay (hidden by default) -->
+            <div class="project-overlay">
+              <h3>WORKOUT IN GYM</h3>
+              <p>I'VE BEEN WORKING ON SHOOTING AND EDITING VIDEOS FOR A MODEL‘S WORKOUTS AT THE GYM</p>
+              <a href="portfolio-projet-01.html" class="view-button">View Project</a>
+            </div>
+          </div>
         </div>
 
 
-        <div class="col estomper-bas-50-s-075 projet-portfolio p-0 image-de-fond">
-          <img src="assets/photos/projet.png" class="img-fluid" alt="project-2" srcset="">
-        </div>
-
+        <!-- ^ PROJECT 2 -->
         <div class="col estomper-bas-50-s-075 projet-portfolio p-0 image-de-fond-35">
-          <img src="assets/photos/projet.png" class="img-fluid" alt="project-3" srcset="">
+          <div class="project-card">
+            <a href="#">
+              <img src="assets/photos/projet.png" class="img-fluid" alt="alternative text">
+            </a>
+            <div class="project-overlay">
+              <h3>TITLE</h3>
+              <p>DESCRIPTION...</p>
+              <a href="#" class="view-button">View Project</a>
+            </div>
+          </div>
         </div>
+
+
+        <!-- ^ PROJECT 3 -->
+        <div class="col estomper-bas-50-s-075 projet-portfolio p-0 image-de-fond-35">
+          <div class="project-card">
+            <a href="#">
+              <img src="assets/photos/projet.png" class="img-fluid" alt="alternative text">
+            </a>
+            <div class="project-overlay">
+              <h3>TITLE</h3>
+              <p>DESCRIPTION...</p>
+              <a href="#" class="view-button">View Project</a>
+            </div>
+          </div>
+        </div>
+
 
       </div>
+
     </div>
     <!-- * ************************************** CARDS  -->
 
@@ -200,9 +234,58 @@
     //     observer.observe(div);
     //   });
     // });
-// ***************************************** Fade (end)    
+    // ***************************************** Fade (end)    
 
+    // * 3. Smooth Modal Popup (Project Details)
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.querySelector('h3').innerText;
+        const imgSrc = card.querySelector('img').src;
+        const description = card.querySelector('p').innerText;
+        const link = card.querySelector('a').href;
+
+        document.getElementById('modal-image').src = imgSrc;
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-description').innerText = description;
+        document.getElementById('modal-link').href = link;
+
+        document.getElementById('project-modal').style.display = 'flex';
+      });
+    });
+
+    document.querySelector('.close-modal').addEventListener('click', () => {
+      document.getElementById('project-modal').style.display = 'none';
+    });
+
+
+    // * 4. Bonus: Scroll-Triggered Animation (Optional)
+    // Animate on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.project-card');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+          }
+        });
+      }, { threshold: 0.1 });
+
+      cards.forEach(card => observer.observe(card));
+    });    
   </script>
+
+
+  <!-- * 3. Smooth Modal Popup (Project Details) -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <img id="modal-image" src="" alt="">
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <a id="modal-link" href="#" target="_blank">Visit Project</a>
+    </div>
+  </div>
 
 </body>
 
