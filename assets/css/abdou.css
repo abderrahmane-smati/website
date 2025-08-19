@@ -575,7 +575,7 @@ body {
 
 /* *** 1 *** Animated Project Cards (Hover + Tilt Effect) */
 /* Portfolio Grid Animation */
-.project-card {
+/* .project-card {
     transition: all 0.4s ease;
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -596,7 +596,7 @@ body {
     transform: scale(1.1);
 }
 
-/* Overlay Animation */
+/ * Overlay Animation * /
 .project-overlay {
     position: absolute;
     bottom: -100%;
@@ -608,9 +608,10 @@ body {
     transition: bottom 0.3s ease;
 }
 
+
 .project-card:hover .project-overlay {
     bottom: 0;
-}
+} */
 
 /* * 1 bis */
 /* ===== Hover & Overlay Effects ===== */
@@ -638,6 +639,7 @@ body {
   transition: bottom 0.3s ease;
 }
 
+
 .projet-portfolio:hover .project-overlay {
   bottom: 0;
 }
@@ -652,6 +654,7 @@ body {
   transition: transform 0.4s ease;
   width: 100%; /* Ensures no conflict with Bootstrap's img-fluid */
 }
+
 
 /* *** 2 *** Staggered Loading Animation (On Page Load) */
 @keyframes fadeInUp {
@@ -670,8 +673,10 @@ body {
 .project-card:nth-child(3) { animation-delay: 0.3s; }
 /* ...add more delays as needed */
 
-/* *** 3 *** */
-.modal {
+
+/* *** 3. Smooth Modal Popup (Project Details) *** */
+/* ! Ce code HTML, avec celui en haut JS avec le même n° 3, permet d'afficher une fenêtre modale qui donne des informations sur le projet (je n'ai pas besoin de ça). */
+/* .modal {
     display: none;
     position: fixed;
     top: 0;
@@ -703,4 +708,4 @@ body {
     right: 20px;
     font-size: 30px;
     cursor: pointer;
-}
+} */
