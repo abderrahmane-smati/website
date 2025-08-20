@@ -558,12 +558,19 @@ body {
     }
 } */
 
-
-.projet-portfolio {
+/* ! -------------- */
+.project-card {
+  cursor: pointer;
+  border-radius: 0.375rem;
+  box-shadow: 4px 4px 8px 2px rgba(255, 255, 255, 0.2), 0 4px 10px 0 rgba(255, 255, 255, 0.6); 
+  /* box-shadow: 2px 2px 2px 2px rgba(255, 255, 255, 0.2), 0 2px 5px 0 rgba(255, 255, 255, 0.6);  */
+}
+/* .projet-portfolio {
   cursor: pointer;
   border-radius: 0.375rem;
   box-shadow: 2px 2px 2px 2px rgba(255, 255, 255, 0.2), 0 2px 5px 0 rgba(255, 255, 255, 0.6); 
-}
+} */
+/* ! -------------- */
 
 .box-shadow-full {
   /* box-shadow: offset-x offset-y blur-radius spread-radius color; */
@@ -613,7 +620,7 @@ body {
     bottom: 0;
 } */
 
-/* * 1 bis */
+/* *** 1 *** Animated Project Cards (Hover + Tilt Effect) */
 /* ===== Hover & Overlay Effects ===== */
 /* Ensure card container is relative for absolute positioning */
 .projet-portfolio {
@@ -652,7 +659,7 @@ body {
 /* Fix for img-fluid scaling */
 .projet-portfolio img {
   transition: transform 0.4s ease;
-  width: 100%; /* Ensures no conflict with Bootstrap's img-fluid */
+  width: 100%;  /* Ensures no conflict with Bootstrap's img-fluid */
 }
 
 
@@ -708,4 +715,12 @@ body {
     right: 20px;
     font-size: 30px;
     cursor: pointer;
+} */
+
+
+
+/* If cards are too wide, add max-width */
+/* .projet-portfolio {
+    max-width: 540px; /* Adjust as needed * /
+    margin: 0 auto; /* Center cards * /
 } */

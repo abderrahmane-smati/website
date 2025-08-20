@@ -96,7 +96,8 @@
     <!-- * ************************************** CARDS  -->
     <!-- <div class="b-example-divider"></div> -->
 
-    <div class="container px-4 py-5" id="custom-cards">
+    <div class="container" id="custom-cards">
+      <!-- <div class="container px-4 py-5" id="custom-cards"> -->
 
       <div class="image-de-fond-35">
         <h2 class="pb-2 border-bottom text-light my-fs-2 estomper-gauche-250-s-075 text-avec-ombre-2">PROJECTS</h2>
@@ -104,11 +105,12 @@
 
 
 
-      <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
+      <div class="row row-cols-1 row-cols-lg-2 px1 align-items-stretch g-4 py-5">
+        <!-- <div class="row row-cols-1 row-cols-lg-2 px-1 align-items-stretch g-4 py-5"> -->
         <!-- <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"> -->
 
         <!-- ^ PROJECT 1 -->
-        <div class="col estomper-bas-50-s-075 projet-portfolio p-0 image-de-fond-35">
+        <div class="col estomper-bas-50-s-075 projet-portfolio p0 image-de-fond-35">
           <!-- Wrap the entire card in "project-card" for hover effects -->
           <div class="project-card">
             <a href="portfolio-projet-01.html">
@@ -126,7 +128,7 @@
 
 
         <!-- ^ PROJECT 2 -->
-        <div class="col estomper-bas-50-s-075 projet-portfolio p-0 image-de-fond-35">
+        <div class="col estomper-bas-50-s-075 projet-portfolio p0 image-de-fond-35">
           <div class="project-card">
             <a href="#">
               <img src="assets/photos/projet.png" class="img-fluid" alt="alternative text">
@@ -141,7 +143,7 @@
 
 
         <!-- ^ PROJECT 3 -->
-        <div class="col estomper-bas-50-s-075 projet-portfolio p-0 image-de-fond-35">
+        <div class="col estomper-bas-50-s-075 projet-portfolio p0 image-de-fond-35">
           <div class="project-card">
             <a href="#">
               <img src="assets/photos/projet.png" class="img-fluid" alt="alternative text">
@@ -207,11 +209,11 @@
 
   <script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelector('.estomper-au-lancement.estomper-bas-50-s-075').classList.add('estomper-vertical-fin');
-    });
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   document.querySelector('.estomper-au-lancement.estomper-bas-50-s-075').classList.add('estomper-vertical-fin');
+    // });
 
-    setTimeout(function () { document.getElementById('premiereImageDuCarousel').classList.add('visible') }, 500);
+    // setTimeout(function () { document.getElementById('premiereImageDuCarousel').classList.add('visible') }, 500);
 
 
     // ***************************************** Fade 
@@ -254,9 +256,9 @@
     //   });
     // });
 
-    document.querySelector('.close-modal').addEventListener('click', () => {
-      document.getElementById('project-modal').style.display = 'none';
-    });
+    // document.querySelector('.close-modal').addEventListener('click', () => {
+    //   document.getElementById('project-modal').style.display = 'none';
+    // });
 
 
     // * 4. Bonus: Scroll-Triggered Animation (Optional)
