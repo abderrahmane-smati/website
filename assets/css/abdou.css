@@ -811,3 +811,17 @@ body {
     max-width: 540px; /* Adjust as needed * /
     margin: 0 auto; /* Center cards * /
 } */
+
+/* * ------------------------------ affichage lettre par lettre (debut) */
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-20px); /* apparition depuis la gauche */
+  transition: all 0.3s ease;
+}
+
+.letter.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* * ------------------------------ affichage lettre par lettre (fin) */

@@ -31,6 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     entry.target.classList.add('estomper-vertical-fin');
                 };
+
+                // Lancer l'animation "lettre par lettre" si la classe .animate-text est présente
+                if (entry.target.classList.contains('affichage-lettre-par-lettre')) {
+                    afficherTexteLettreParLettre(entry.target, 70, false); // false = depuis la gauche
+                };
+
                 // Optionally unobserve after the effect is applied
                 observer.unobserve(entry.target);
             }
@@ -110,6 +116,53 @@ const aUneClasseCommencantPar = (element, prefixe) => {
 // ***************************************** Fade (estomper) (end)
 
 
+// ***************************************** affichage lettre par lettre (début)
+function afficherTexteLettreParLettre(element, delay = 100, fromRight = false) {
+    const text = element.textContent;
+    element.textContent = ""; // On vide le texte
+
+    [...text].forEach((char, i) => {
+        // [...] transforme une chaîne de caractères en un tableau de caractères individuels
+        const span = document.createElement("span");
+        // span.textContent = char;
+        span.textContent = char === " " ? "\u00A0" : char;
+        span.classList.add("letter");
+        if (fromRight) span.style.transform = "translateX(20px)";
+        element.appendChild(span);
+
+        setTimeout(() => {
+            span.classList.add("show");
+        }, i * delay);
+    });
+};
+
+
+// function afficherTexteLettreParLettre(selector, delay = 100, fromRight = false) {
+//     console.log('selector:', selector);
+//     const elements = document.querySelectorAll(selector);
+
+//     elements.forEach(el => {
+//         const text = el.textContent;
+//         el.textContent = ""; // on vide le texte
+
+//         [...text].forEach((char, i) => {
+//             const span = document.createElement("span");
+//             span.textContent = char;
+//             span.classList.add("letter");
+//             if (fromRight) span.style.transform = "translateX(20px)";
+//             el.appendChild(span);
+
+//             setTimeout(() => {
+//                 span.classList.add("show");
+//             }, i * delay);
+//         });
+//     });
+// }
+
+// Animation sur tous les éléments avec la classe .animate-text
+// afficherTexteLettreParLettre(".affichage-lettre-par-lettre", 120, false); // false = depuis la gauche
+// ***************************************** affichage lettre par lettre (fin)
+
 
 // ***************************************** Recherche
 // document.addEventListener('DOMContentLoaded', () => {
@@ -142,3 +195,4 @@ const aUneClasseCommencantPar = (element, prefixe) => {
 //     });
 // });
 // ***************************************** Recherche (end)
+
