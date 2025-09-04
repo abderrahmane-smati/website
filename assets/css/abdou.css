@@ -718,6 +718,11 @@ body {
   pointer-events: none; /* Prevents interaction when hidden */
   /* transition: bottom 0.3s ease; */
   /* display: none;  */
+
+  background-image: url("../../assets/photos/point-rouge.png");
+  background-size: 75%;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
 .projet-portfolio:hover .project-overlay {
