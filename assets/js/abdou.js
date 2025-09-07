@@ -196,3 +196,42 @@ function afficherTexteLettreParLettre(element, delay = 100, fromRight = false) {
 // });
 // ***************************************** Recherche (end)
 
+
+// ^ ********************************************** effet HALO (début) */
+
+document.querySelectorAll(".effet-halo-lumineux").forEach((btn) => {
+    btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const style = window.getComputedStyle(btn);
+        const paddingLeft = parseFloat(style.paddingLeft);
+        const paddingTop = parseFloat(style.paddingTop);
+
+        const x = e.clientX - rect.left + paddingLeft;
+        const y = e.clientY - rect.top + paddingTop;
+
+        btn.style.setProperty("--x", `${x}px`);
+        btn.style.setProperty("--y", `${y}px`);
+    });
+});
+
+// document.querySelectorAll(".effet-halo-lumineux").forEach((btn) => {
+//     btn.addEventListener("mousemove", (e) => {
+//         const rect = btn.getBoundingClientRect();
+//         const x = e.clientX - rect.left;
+//         const y = e.clientY - rect.top;
+//         btn.style.setProperty("--x", `${x}px`);
+//         btn.style.setProperty("--y", `${y}px`);
+//     });
+// });
+
+
+// document.querySelectorAll(".effet-halo-lumineux").forEach((btn) => {
+//     btn.addEventListener("mousemove", (e) => {
+//         const x = e.offsetX; // position relative horizontale
+//         const y = e.offsetY; // position relative verticale
+//         btn.style.setProperty("--x", `${x}px`);
+//         btn.style.setProperty("--y", `${y}px`);
+//     });
+// });
+
+// ^ ********************************************** effet HALO (fin) */

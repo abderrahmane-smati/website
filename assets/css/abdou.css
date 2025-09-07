@@ -233,6 +233,7 @@ body {
 
 #goTopBtn:hover {
   box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
+  border: 0.5px solid #ff0000; /* ✅ Périmètre rouge ajouté */
 }
 /* [data-bs-theme="dark"] #goTopBtn:hover {
   box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
@@ -306,11 +307,13 @@ body {
   color: white;
 }
 
+/* ^ ********************************************** bouton ROUGE +/- effet HALO (début) */
 .bouton-rouge {
   background-color: #ff0000;
   color: white;
   /* font-weight: bold; */
   /* font-size: larger; */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .bouton-rouge:hover {
@@ -319,11 +322,51 @@ body {
 }
 
 .bouton-rouge a {
-  color: white;
+  /* color: white; */
+
+  /* new */
+  color: inherit; /* hérite de la couleur du bouton */
+  position: relative;
+  z-index: 2; /* garde le texte au-dessus de l'effet */
+  text-decoration: none;
 }
 .bouton-rouge:hover a {
   color: #ff0000;
 }
+
+.effet-halo-lumineux::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  /* ROUGE: */
+  background: radial-gradient(
+    circle 65px at var(--x, 50%) var(--y, 50%),
+    rgba(255, 0, 0, 0.3),
+    transparent 70%
+  );
+
+  /* ROUGE au centre, DORE vers l'extérieur
+  background: radial-gradient(
+    circle 65px at var(--x, 50%) var(--y, 50%),
+    rgba(255, 0, 0, 0.3) 0%,
+    rgba(255, 215, 0, 0.3) 40%,
+    transparent 60%
+  ); */
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.effet-halo-lumineux:hover::before {
+  opacity: 1;
+}
+/* ^ ********************************************** bouton ROUGE +/- effet HALO (fin) */
 
 .bouton-reseaux-sociaux {
   background-color: rgb(26, 26, 26);
@@ -830,3 +873,12 @@ body {
   transform: translateX(0);
 }
 /* * ------------------------------ affichage lettre par lettre (fin) */
+
+.fond-cercle {
+  background: radial-gradient(
+    circle,
+    darkred 0%,
+    black 40%,
+    /* red 30%, */ /* transition rouge */ black 100% /* bord noir */
+  );
+}
