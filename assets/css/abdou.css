@@ -334,6 +334,11 @@ body {
   color: #ff0000;
 }
 
+.effet-halo-lumineux {
+  position: relative;
+  overflow: hidden;
+}
+
 .effet-halo-lumineux::before {
   content: "";
   position: absolute;
@@ -346,7 +351,7 @@ body {
   /* ROUGE: */
   background: radial-gradient(
     circle 65px at var(--x, 50%) var(--y, 50%),
-    rgba(255, 0, 0, 0.3),
+    rgba(255, 0, 0, 0.5),
     transparent 70%
   );
 
@@ -762,10 +767,10 @@ body {
   /* transition: bottom 0.3s ease; */
   /* display: none;  */
 
-  background-image: url("../../assets/photos/point-rouge.png");
+  /* background-image: url("../../assets/photos/point-rouge.png");
   background-size: 75%;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image * /
+  background-repeat: no-repeat; /* Prevent the image from repeating * / */
 }
 
 .projet-portfolio:hover .project-overlay {
@@ -874,11 +879,66 @@ body {
 }
 /* * ------------------------------ affichage lettre par lettre (fin) */
 
+/* * ---------------- fond cercle rouge dégradé (début)  */
 .fond-cercle {
   background: radial-gradient(
     circle,
     darkred 0%,
-    black 40%,
-    /* red 30%, */ /* transition rouge */ black 100% /* bord noir */
+    transparent var(--limite-fond-cercle, 30%)
   );
 }
+.fond-cercle-20 {
+  background: radial-gradient(circle, darkred 0%, transparent 20%);
+}
+.fond-cercle-30 {
+  background: radial-gradient(circle, darkred 0%, transparent 30%);
+}
+.fond-cercle-40 {
+  background: radial-gradient(circle, darkred 0%, transparent 40%);
+}
+.fond-cercle-50 {
+  background: radial-gradient(circle, darkred 0%, transparent 50%);
+}
+.fond-cercle-60 {
+  background: radial-gradient(circle, darkred 0%, transparent 60%);
+}
+.fond-cercle-70 {
+  background: radial-gradient(circle, darkred 0%, transparent 70%);
+}
+.fond-cercle-80 {
+  background: radial-gradient(circle, darkred 0%, transparent 80%);
+}
+.fond-cercle-90 {
+  background: radial-gradient(circle, darkred 0%, transparent 90%);
+}
+
+/* on peut utiliser cette solution comme suit (par exemple):
+    <div class="fond-cercle" style="--limite-fond-cercle: 65%;">
+*/
+
+/* ! radial-gradient([<shape> || <size>] [at <position>]? , <color-stop>, <color-stop>, ...)
+- <shape>: circle | ellipse
+- <size>: 
+  + Quatre mots-clés prédéfinis : closest-side, farthest-side, closest-corner, farthest-corner
+  + ou une taille explicite :
+    . longueur (50px 100px)
+    . pourcentage (30% 60%)
+- at <position>: position du centre (par défaut → center)
+  + Mots-clés : left, right, top, bottom, center
+  + ou coordonnées : at 20% 70%, at 40px 50px.
+- <color-stop>: couleurs et points d’arrêt
+  Liste de couleurs, séparées par des virgules.
+  Chaque couleur peut être suivie d’un point d’arrêt (longueur ou %).
+  On peut mettre plusieurs arrêts de la même couleur pour créer des “bandes nettes”.
+
+Exemples:
+- 1: cercle simple du rouge vers le noir
+background: radial-gradient(circle, red 0%, black 100%);
+- 2: ellipse qui remplit jusqu’au côté le plus éloigné
+background: radial-gradient(ellipse farthest-side, blue, white);
+- 3: cercle décalé vers le coin
+background: radial-gradient(circle at top left, green, transparent);
+- 4: taille explicite (150px rayon horizontal, 100px vertical)
+background: radial-gradient(ellipse 150px 100px at center, purple, pink);
+*/
+/* * ---------------- fond cercle rouge dégradé (fin)  */

@@ -206,8 +206,17 @@ document.querySelectorAll(".effet-halo-lumineux").forEach((btn) => {
         const paddingLeft = parseFloat(style.paddingLeft);
         const paddingTop = parseFloat(style.paddingTop);
 
+        // clientX, clientY = coordonnées souris dans la fenêtre
+        // rect.left, rect.top = position du bouton dans la fenêtre
+
         const x = e.clientX - rect.left + paddingLeft;
         const y = e.clientY - rect.top + paddingTop;
+
+        console.log('client:', e.clientX, e.clientY);
+        console.log('rect:', rect.left, rect.top);
+        console.log('padding:', paddingLeft, paddingTop);
+        console.log('*** mousemove:', x, y);
+        console.log('--------------');
 
         btn.style.setProperty("--x", `${x}px`);
         btn.style.setProperty("--y", `${y}px`);
