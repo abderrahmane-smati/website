@@ -1,21 +1,28 @@
 // ***************************************** GoTop Button
 // Get the button
 const goTopBtn = document.getElementById("goTopBtn");
+const dureeAffichage_goTopBtn = 5000; // 5 s
+var identifiant_CacherGoTop;
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
         if (window.getComputedStyle(goTopBtn).display == 'none') {
+            // console.log('window.getComputedStyle(goTopBtn).display:', window.getComputedStyle(goTopBtn).display);
             goTopBtn.style.display = "block";
             goTopBtn.setAttribute('doit-etre-affiche', 'true');
-            setTimeout(() => { goTopBtn.style.display = "none"; }, 7000);
-            // Le bouton est affiché pendant une durée (7 s), ensuite caché si aucun mouvement n'est fait
-            // 7000 (7 s): délai avant disparition
+            clearTimeout(identifiant_CacherGoTop);  // annuler une éventuelle action lancée par setTimeout
+            identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.display = "none"; }, dureeAffichage_goTopBtn);
+            // console.log('prog.caché (a)');
+            // Le bouton est affiché pendant une durée (dureeAffichage_goTopBtn ms), ensuite caché si aucun mouvement n'est fait
+            // console.log('affiché', identifiant_CacherGoTop);
         };
     } else {
         if (window.getComputedStyle(goTopBtn).display != 'none') {
             goTopBtn.style.display = "none";
             goTopBtn.setAttribute('doit-etre-affiche', 'false');
+            clearTimeout(identifiant_CacherGoTop);  // annuler l'action lancée par setTimeout
+            // console.log('caché', 'annul.prog', identifiant_CacherGoTop);
         };
     }
 };
@@ -31,15 +38,32 @@ window.onscroll = function () {
 window.addEventListener('mousemove', () => {
     // if (theGoTopButton.matches(':hover')) { // NE MARCHE PAS
     // NE MARCHE PAS: On affiche le bouton GoTop seulement si on bouge la souris au dessus de la zone où il sera affiché
-    if (window.getComputedStyle(goTopBtn).display == 'none') {
-        if (goTopBtn.getAttribute('doit-etre-affiche') == 'true') {
+    if (goTopBtn.getAttribute('doit-etre-affiche') == 'true') {
+        if (window.getComputedStyle(goTopBtn).display == 'none') {
             goTopBtn.style.display = "block";
-            setTimeout(() => { goTopBtn.style.display = "none"; }, 7000);
-            // Le bouton est affiché pendant une durée (7 s), ensuite caché si aucun mouvement n'est fait
-            // 7000 (7 s): délai avant disparition
+            clearTimeout(identifiant_CacherGoTop);  // annuler une éventuelle action lancée par setTimeout
+            identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.display = "none"; }, dureeAffichage_goTopBtn);
+            // console.log('prog.caché (b)');
+            //console.log('affiché 2', identifiant_CacherGoTop);
+            // Le bouton est affiché pendant une durée (dureeAffichage_goTopBtn ms), ensuite caché si aucun mouvement n'est fait
+        } else {
+            // Le bouton est déjà affiché, donc, on annule l'action précédente de setTimeout et on crée une nouvelle
+            clearTimeout(identifiant_CacherGoTop);  // annuler l'action lancée précédemment par setTimeout
+            identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.display = "none"; }, identifiant_CacherGoTop);
+            // console.log('prog.caché (c)');
         }
     };
     // }
+
+    // if (window.getComputedStyle(goTopBtn).display == 'none') {
+    //     if (goTopBtn.getAttribute('doit-etre-affiche') == 'true') {
+    //         clearTimeout(identifiant_CacherGoTop);  // annuler l'action lancée précédemment par setTimeout
+    //         goTopBtn.style.display = "block";
+    //         identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.display = "none"; console.log('prog.caché (b)'); }, 7000);
+    //         console.log('affiché 2', identifiant_CacherGoTop);
+    //         // Le bouton est affiché pendant une durée (7 s), ensuite caché si aucun mouvement n'est fait
+    //         // 7000 (7 s): délai avant disparition
+    //     };
 });
 
 // When the user clicks on the button, scroll to the top of the document
@@ -52,7 +76,10 @@ goTopBtn.addEventListener("click", function () {
 
 // ***************************************** Fade (estomper) 
 document.addEventListener('DOMContentLoaded', function () {
-    const estomperDivs = document.querySelectorAll('.estomper-bas-50-s-075, .estomper-haut-50-s-075, .estomper-gauche-250-s-075');
+    const estomperDivs = document.querySelectorAll('.estomper');
+    // old: const estomperDivs = document.querySelectorAll('.estomper-bas-50-s-075, .estomper-haut-50-s-075, .estomper-gauche-250-s-075');
+
+    // const lettreParLettreElements = document.querySelectorAll('affichage-lettre-par-lettre');
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -79,6 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
     estomperDivs.forEach(div => {
         observer.observe(div);
     });
+
+    // lettreParLettreElements.forEach(element => { observer.observe(element) });
 });
 
 const aUneClasseCommencantPar = (element, prefixe) => {

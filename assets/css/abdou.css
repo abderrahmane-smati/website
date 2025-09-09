@@ -257,6 +257,11 @@ body {
   /* transform: translateY(50px); */
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
+.estomper-bas-25-s-075 {
+  opacity: 0;
+  transform: translateY(25%);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
 .estomper-haut-50-s-075 {
   opacity: 0;
   transform: translateY(-50%);

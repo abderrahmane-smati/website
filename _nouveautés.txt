@@ -8,3 +8,8 @@
 09/09/2025:
 - le bouton GoTop disparait si inactivité pour 5 sec.
 
+
+RESTE:
+- afficher/cacher bouton GoTop
+if (window.getComputedStyle(goTopBtn).display == 'none') {
+peut être VRAI alors que le bouton est affiché !
