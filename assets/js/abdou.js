@@ -234,20 +234,25 @@ document.querySelectorAll(".effet-halo-lumineux").forEach((btn) => {
     btn.addEventListener("mousemove", (e) => {
         const rect = btn.getBoundingClientRect();
         const style = window.getComputedStyle(btn);
-        const paddingLeft = parseFloat(style.paddingLeft);
-        const paddingTop = parseFloat(style.paddingTop);
+
+        // Element.getBoundingClientRect() retourne un objet DOMRect décrivant la position et la taille de l’élément dans la zone d’affichage(viewport).
+        // Ces valeurs ne tiennent pas compte du défilement de la page; elles sont relatives à la fenêtre visible (viewport).
+
+
+        //const paddingLeft = parseFloat(style.paddingLeft);
+        //const paddingTop = parseFloat(style.paddingTop);
 
         // clientX, clientY = coordonnées souris dans la fenêtre
         // rect.left, rect.top = position du bouton dans la fenêtre
 
-        const x = e.clientX - rect.left + paddingLeft;
-        const y = e.clientY - rect.top + paddingTop;
+        const x = e.clientX - rect.left; // + paddingLeft;
+        const y = e.clientY - rect.top; // + paddingTop;
 
-        console.log('client:', e.clientX, e.clientY);
-        console.log('rect:', rect.left, rect.top);
-        console.log('padding:', paddingLeft, paddingTop);
-        console.log('*** mousemove:', x, y);
-        console.log('--------------');
+        // console.log('client:', e.clientX, e.clientY);
+        // console.log('rect:', rect.left, rect.top);
+        // console.log('padding:', paddingLeft, paddingTop);
+        // console.log('*** mousemove:', x, y);
+        // console.log('--------------');
 
         btn.style.setProperty("--x", `${x}px`);
         btn.style.setProperty("--y", `${y}px`);
