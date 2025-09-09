@@ -5,11 +5,42 @@ const goTopBtn = document.getElementById("goTopBtn");
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        goTopBtn.style.display = "block";
+        if (window.getComputedStyle(goTopBtn).display == 'none') {
+            goTopBtn.style.display = "block";
+            goTopBtn.setAttribute('doit-etre-affiche', 'true');
+            setTimeout(() => { goTopBtn.style.display = "none"; }, 5000);
+            // Le bouton est affiché pendant une durée (5 s), ensuite caché si aucun mouvement n'est fait
+            // 5000 (5 s): délai avant disparition
+        };
     } else {
-        goTopBtn.style.display = "none";
+        if (window.getComputedStyle(goTopBtn).display != 'none') {
+            goTopBtn.style.display = "none";
+            goTopBtn.setAttribute('doit-etre-affiche', 'false');
+        };
     }
 };
+// window.onscroll = function () {
+//     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+//         goTopBtn.style.display = "block";
+//     } else {
+//         goTopBtn.style.display = "none";
+//     }
+// };
+
+// Quand on bouge la souris et le bouton GoTop peut être affiché, on l'affiche
+window.addEventListener('mousemove', () => {
+    // if (theGoTopButton.matches(':hover')) { // NE MARCHE PAS
+    // NE MARCHE PAS: On affiche le bouton GoTop seulement si on bouge la souris au dessus de la zone où il sera affiché
+    if (window.getComputedStyle(goTopBtn).display == 'none') {
+        if (goTopBtn.getAttribute('doit-etre-affiche') == 'true') {
+            goTopBtn.style.display = "block";
+            setTimeout(() => { goTopBtn.style.display = "none"; }, 5000);
+            // Le bouton est affiché pendant une durée (5 s), ensuite caché si aucun mouvement n'est fait
+            // 5000 (5 s): délai avant disparition
+        }
+    };
+    // }
+});
 
 // When the user clicks on the button, scroll to the top of the document
 goTopBtn.addEventListener("click", function () {
