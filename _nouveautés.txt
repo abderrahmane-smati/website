@@ -2,5 +2,9 @@
 - effet HALO lumineux bouton
 - cercle rouge (périmètre) pour bouton GoTop (on hover)
 
-en cours:
+08/09/2025:
 - bouton rouge de fond par CSS au lieu d'image.
+
+09/09/2025:
+- le bouton GoTop disparait si inactivité pour 5 sec.
+

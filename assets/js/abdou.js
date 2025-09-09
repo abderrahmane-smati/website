@@ -8,9 +8,9 @@ window.onscroll = function () {
         if (window.getComputedStyle(goTopBtn).display == 'none') {
             goTopBtn.style.display = "block";
             goTopBtn.setAttribute('doit-etre-affiche', 'true');
-            setTimeout(() => { goTopBtn.style.display = "none"; }, 5000);
-            // Le bouton est affiché pendant une durée (5 s), ensuite caché si aucun mouvement n'est fait
-            // 5000 (5 s): délai avant disparition
+            setTimeout(() => { goTopBtn.style.display = "none"; }, 7000);
+            // Le bouton est affiché pendant une durée (7 s), ensuite caché si aucun mouvement n'est fait
+            // 7000 (7 s): délai avant disparition
         };
     } else {
         if (window.getComputedStyle(goTopBtn).display != 'none') {
@@ -34,9 +34,9 @@ window.addEventListener('mousemove', () => {
     if (window.getComputedStyle(goTopBtn).display == 'none') {
         if (goTopBtn.getAttribute('doit-etre-affiche') == 'true') {
             goTopBtn.style.display = "block";
-            setTimeout(() => { goTopBtn.style.display = "none"; }, 5000);
-            // Le bouton est affiché pendant une durée (5 s), ensuite caché si aucun mouvement n'est fait
-            // 5000 (5 s): délai avant disparition
+            setTimeout(() => { goTopBtn.style.display = "none"; }, 7000);
+            // Le bouton est affiché pendant une durée (7 s), ensuite caché si aucun mouvement n'est fait
+            // 7000 (7 s): délai avant disparition
         }
     };
     // }
