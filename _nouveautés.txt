@@ -12,3 +12,5 @@
 - le bouton GoTop disparait si inactivité pour 5 sec.
 (j'ai changé vers l'utilisation de opacity au lieu de display)
 
+10/09/2025:
+- effet bouton GoTop (translate)
