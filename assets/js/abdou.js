@@ -4,22 +4,38 @@ const goTopBtn = document.getElementById("goTopBtn");
 const dureeAffichage_goTopBtn = 5000; // 5 s
 var identifiant_CacherGoTop;
 
+function razTimerDetectionMouvementSouris() {
+    clearTimeout(identifiant_CacherGoTop);
+    if (window.getComputedStyle(goTopBtn).opacity != 0) {
+        identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.opacity = 0; }, dureeAffichage_goTopBtn);
+    };
+};
+
+window.addEventListener("mousemove", razTimerDetectionMouvementSouris);
+window.addEventListener("mousedown", razTimerDetectionMouvementSouris);
+window.addEventListener("keydown", razTimerDetectionMouvementSouris); // optionnel : clavier
+window.addEventListener("scroll", razTimerDetectionMouvementSouris); // optionnel : défilement
+
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        if (window.getComputedStyle(goTopBtn).display == 'none') {
+        if (window.getComputedStyle(goTopBtn).opacity == 0) {
+            // if (window.getComputedStyle(goTopBtn).display == 'none') {
             // console.log('window.getComputedStyle(goTopBtn).display:', window.getComputedStyle(goTopBtn).display);
-            goTopBtn.style.display = "block";
+            goTopBtn.style.opacity = 1;
+            // goTopBtn.style.display = "block";
             goTopBtn.setAttribute('doit-etre-affiche', 'true');
-            clearTimeout(identifiant_CacherGoTop);  // annuler une éventuelle action lancée par setTimeout
-            identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.display = "none"; }, dureeAffichage_goTopBtn);
+            //clearTimeout(identifiant_CacherGoTop);  // annuler une éventuelle action lancée par setTimeout
+            identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.opacity = 0; }, dureeAffichage_goTopBtn);
             // console.log('prog.caché (a)');
             // Le bouton est affiché pendant une durée (dureeAffichage_goTopBtn ms), ensuite caché si aucun mouvement n'est fait
             // console.log('affiché', identifiant_CacherGoTop);
         };
     } else {
-        if (window.getComputedStyle(goTopBtn).display != 'none') {
-            goTopBtn.style.display = "none";
+        if (window.getComputedStyle(goTopBtn).opacity != 0) {
+            // if (window.getComputedStyle(goTopBtn).display != 'none') {
+            goTopBtn.style.opacity = 0;
+            // goTopBtn.style.display = "none";
             goTopBtn.setAttribute('doit-etre-affiche', 'false');
             clearTimeout(identifiant_CacherGoTop);  // annuler l'action lancée par setTimeout
             // console.log('caché', 'annul.prog', identifiant_CacherGoTop);
@@ -39,17 +55,19 @@ window.addEventListener('mousemove', () => {
     // if (theGoTopButton.matches(':hover')) { // NE MARCHE PAS
     // NE MARCHE PAS: On affiche le bouton GoTop seulement si on bouge la souris au dessus de la zone où il sera affiché
     if (goTopBtn.getAttribute('doit-etre-affiche') == 'true') {
-        if (window.getComputedStyle(goTopBtn).display == 'none') {
-            goTopBtn.style.display = "block";
-            clearTimeout(identifiant_CacherGoTop);  // annuler une éventuelle action lancée par setTimeout
-            identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.display = "none"; }, dureeAffichage_goTopBtn);
+        if (window.getComputedStyle(goTopBtn).opacity == 0) {
+            // if (window.getComputedStyle(goTopBtn).display == 'none') {
+            goTopBtn.style.opacity = 1;
+            // goTopBtn.style.display = "block";
+            //clearTimeout(identifiant_CacherGoTop);  // annuler une éventuelle action lancée par setTimeout
+            //identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.opacity = 0; }, dureeAffichage_goTopBtn);
             // console.log('prog.caché (b)');
             //console.log('affiché 2', identifiant_CacherGoTop);
             // Le bouton est affiché pendant une durée (dureeAffichage_goTopBtn ms), ensuite caché si aucun mouvement n'est fait
         } else {
             // Le bouton est déjà affiché, donc, on annule l'action précédente de setTimeout et on crée une nouvelle
-            clearTimeout(identifiant_CacherGoTop);  // annuler l'action lancée précédemment par setTimeout
-            identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.display = "none"; }, identifiant_CacherGoTop);
+            //clearTimeout(identifiant_CacherGoTop);  // annuler l'action lancée précédemment par setTimeout
+            //identifiant_CacherGoTop = setTimeout(() => { goTopBtn.style.opacity = 0; }, identifiant_CacherGoTop);
             // console.log('prog.caché (c)');
         }
     };

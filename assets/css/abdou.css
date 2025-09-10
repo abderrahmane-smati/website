@@ -4,6 +4,7 @@
   --my-fs-max-variable-size: 4vw;
   --my-fs-offset-size: 0.2vw;
   /* --my-fs-offset-size: 0.25vw; */
+  /* --couleur-darkred: #8b0000; */
 }
 
 html {
@@ -202,7 +203,8 @@ body {
 
 /* ************************** GoTop Button */
 #goTopBtn {
-  display: none;
+  /* display: none; */
+  opacity: 0;
   position: fixed;
   bottom: 20px;
   left: calc(50% - 2rem);
@@ -885,36 +887,44 @@ body {
 /* * ------------------------------ affichage lettre par lettre (fin) */
 
 /* * ---------------- fond cercle rouge dégradé (début)  */
+/* #8b0000 = darkred */
 .fond-cercle {
   background: radial-gradient(
     circle,
-    darkred 0%,
+    #8b0000 0%,
     transparent var(--limite-fond-cercle, 30%)
   );
 }
 .fond-cercle-20 {
-  background: radial-gradient(circle, darkred 0%, transparent 20%);
+  background: radial-gradient(circle, #8b0000 0%, transparent 20%);
+}
+.fond-cercle-25 {
+  background: radial-gradient(circle, #8b0000 0%, transparent 25%);
 }
 .fond-cercle-30 {
-  background: radial-gradient(circle, darkred 0%, transparent 30%);
+  background: radial-gradient(circle, #8b0000 0%, transparent 30%);
+  /* background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; */
+  /* background-size: 100% 100%; force un cercle étiré dans le div */
 }
 .fond-cercle-40 {
-  background: radial-gradient(circle, darkred 0%, transparent 40%);
+  background: radial-gradient(circle, #8b0000 0%, transparent 40%);
 }
 .fond-cercle-50 {
-  background: radial-gradient(circle, darkred 0%, transparent 50%);
+  background: radial-gradient(circle, #8b0000 0%, transparent 50%);
 }
 .fond-cercle-60 {
-  background: radial-gradient(circle, darkred 0%, transparent 60%);
+  background: radial-gradient(circle, #8b0000 0%, transparent 60%);
 }
 .fond-cercle-70 {
-  background: radial-gradient(circle, darkred 0%, transparent 70%);
+  background: radial-gradient(circle, #8b0000 0%, transparent 70%);
 }
 .fond-cercle-80 {
-  background: radial-gradient(circle, darkred 0%, transparent 80%);
+  background: radial-gradient(circle, #8b0000 0%, transparent 80%);
 }
 .fond-cercle-90 {
-  background: radial-gradient(circle, darkred 0%, transparent 90%);
+  background: radial-gradient(circle, #8b0000 0%, transparent 90%);
 }
 
 /* on peut utiliser cette solution comme suit (par exemple):

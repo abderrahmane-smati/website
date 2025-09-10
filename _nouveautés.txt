@@ -1,3 +1,6 @@
+05/09/2025:
+- texte (overlay) explicatif sur chaque projet du portfolio.
+
 07/09/2025:
 - effet HALO lumineux bouton
 - cercle rouge (périmètre) pour bouton GoTop (on hover)
@@ -7,9 +10,5 @@
 
 09/09/2025:
 - le bouton GoTop disparait si inactivité pour 5 sec.
+(j'ai changé vers l'utilisation de opacity au lieu de display)
 
-
-RESTE:
-- afficher/cacher bouton GoTop
-if (window.getComputedStyle(goTopBtn).display == 'none') {
-peut être VRAI alors que le bouton est affiché !
