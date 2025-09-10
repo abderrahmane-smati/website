@@ -92,6 +92,7 @@ goTopBtn.addEventListener("click", function () {
 // ***************************************** GoTop Button (end)
 
 
+
 // ***************************************** Fade (estomper) 
 document.addEventListener('DOMContentLoaded', function () {
     const estomperDivs = document.querySelectorAll('.estomper');
@@ -194,6 +195,7 @@ const aUneClasseCommencantPar = (element, prefixe) => {
 // ***************************************** Fade (estomper) (end)
 
 
+
 // ***************************************** affichage lettre par lettre (début)
 function afficherTexteLettreParLettre(element, delay = 100, fromRight = false) {
     const text = element.textContent;
@@ -242,6 +244,7 @@ function afficherTexteLettreParLettre(element, delay = 100, fromRight = false) {
 // ***************************************** affichage lettre par lettre (fin)
 
 
+
 // ***************************************** Recherche
 // document.addEventListener('DOMContentLoaded', () => {
 //     const form = document.getElementById('chercherForm');
@@ -273,6 +276,7 @@ function afficherTexteLettreParLettre(element, delay = 100, fromRight = false) {
 //     });
 // });
 // ***************************************** Recherche (end)
+
 
 
 // ^ ********************************************** effet HALO (début) */
@@ -327,3 +331,11 @@ document.querySelectorAll(".effet-halo-lumineux").forEach((btn) => {
 // });
 
 // ^ ********************************************** effet HALO (fin) */
+
+
+
+function cacherMenu() {
+    // Cacher le menu pour petits écrans.
+    // On l'utilise juste pour les liens dans la même page; pour ceux externes une autre page est chargée (donc le menu sera caché)
+    document.getElementById("navbarExample").classList.toggle('show');
+};
