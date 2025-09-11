@@ -890,6 +890,7 @@ body {
   opacity: 0;
   transform: translateX(-20px); /* apparition depuis la gauche */
   transition: all 0.3s ease;
+  color: inherit !important;
 }
 
 .letter.show {
@@ -1009,3 +1010,11 @@ background: radial-gradient(ellipse 150px 100px at center, purple, pink);
   height: 32rem;
 } */
 
+
+
+
+h2 {
+  display: inline-block; /* garde la largeur du texte */
+  border-bottom: 4px solid darkred;
+  padding-bottom: 5px; /* espace entre texte et ligne */
+}
