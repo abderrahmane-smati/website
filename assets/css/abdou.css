@@ -234,26 +234,20 @@ body {
   filter: invert(1);
 } */
 
-/* #goTopBtn:active {
-  box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
-  border: 0.5px solid #ff0000;
-  transform: translateY(-10px);
-} */
-
 #goTopBtn:hover {
   box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
   border: 0.5px solid #ff0000; /* ✅ Périmètre rouge ajouté */
   transform: translateY(-10px);
 }
 
-/* @media (hover: none) {
+@media (hover: none) {
   #goTopBtn:hover {
     / * Désactive l'effet hover sur tactile * /
-    box-shadow: none;
-    border: none;
-    transform: none;
+    box-shadow: none !important;
+    border: none !important;
+    transform: none !important;
   }
-} */
+}
 
 /* [data-bs-theme="dark"] #goTopBtn:hover {
   box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
