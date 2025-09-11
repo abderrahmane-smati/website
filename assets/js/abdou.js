@@ -6,6 +6,7 @@ var identifiant_CacherGoTop;
 
 goTopBtn.addEventListener("touchend", () => {
     goTopBtn.blur(); // force la perte du focus/hover pour les écrans tactiles
+    alert('touchend');
 });
 
 function razTimerDetectionMouvementSouris() {
