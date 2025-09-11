@@ -88,8 +88,6 @@ window.addEventListener('mousemove', () => {
 goTopBtn.addEventListener("click", function () {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-    window.focus();  // force la perte du focus/hover pour les écrans tactiles
-    alert('focus');
 });
 // ***************************************** GoTop Button (end)
 
