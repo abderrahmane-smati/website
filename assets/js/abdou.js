@@ -4,6 +4,10 @@ const goTopBtn = document.getElementById("goTopBtn");
 const dureeAffichage_goTopBtn = 5000; // 5 s
 var identifiant_CacherGoTop;
 
+goTopBtn.addEventListener("touchend", () => {
+    goTopBtn.blur(); // force la perte du focus/hover pour les écrans tactiles
+});
+
 function razTimerDetectionMouvementSouris() {
     clearTimeout(identifiant_CacherGoTop);
     if (window.getComputedStyle(goTopBtn).opacity != 0) {

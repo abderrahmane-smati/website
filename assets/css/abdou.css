@@ -246,14 +246,14 @@ body {
   transform: translateY(-10px);
 }
 
-@media (hover: none) {
+/* @media (hover: none) {
   #goTopBtn:hover {
     / * Désactive l'effet hover sur tactile * /
     box-shadow: none;
     border: none;
     transform: none;
   }
-}
+} */
 
 /* [data-bs-theme="dark"] #goTopBtn:hover {
   box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
