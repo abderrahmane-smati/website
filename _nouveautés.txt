@@ -14,3 +14,7 @@
 
 10/09/2025:
 - effet bouton GoTop (translate)
+
+
+RESTE:
+- je n'ai pas trouvé une solution pour le problème des écrans tactiles où le bouton GoTop garde le style du :hover après un clic.
