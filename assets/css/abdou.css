@@ -969,3 +969,43 @@ background: radial-gradient(circle at top left, green, transparent);
 background: radial-gradient(ellipse 150px 100px at center, purple, pink);
 */
 /* * ---------------- fond cercle rouge dégradé (fin)  */
+
+
+
+/* @media (min-width: 576px) ou (max-width: 576px) {
+  <selector> { ... }
+}
+@media (min-width: 768px) ou (max-width: 768px) {
+  <selector> { ... }
+}
+@media (min-width: 992px) ... {
+  <selector> { ... }
+}
+@media (min-width: 1200px) ... {
+  <selector> { ... }
+}
+@media (min-width: 1400px) ... {
+  <selector> { ... }
+} */
+
+
+/* ^ adapter l'espace en dessous de la barre menu selon la taille de l'écran */
+#separateurPourNavBar {
+   height: 90px;
+}
+@media (max-width: 576px) {
+  #separateurPourNavBar {height: 30px;}
+
+  /* .carousel-item {
+    height: 20rem;
+  }
+  .carousel-inner {
+    height: 20rem;
+  } */
+}
+
+
+/* .carousel-inner {
+  height: 32rem;
+} */
+
