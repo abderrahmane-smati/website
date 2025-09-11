@@ -234,6 +234,12 @@ body {
   filter: invert(1);
 } */
 
+#goTopBtn:active {
+  box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
+  border: 0.5px solid #ff0000;
+  transform: translateY(-10px);
+}
+
 #goTopBtn:hover {
   box-shadow: 0 8px 8px rgba(255, 255, 255, 0.5);
   border: 0.5px solid #ff0000; /* ✅ Périmètre rouge ajouté */
