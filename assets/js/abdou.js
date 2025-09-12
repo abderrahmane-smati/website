@@ -114,6 +114,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     afficherTexteLettreParLettre(entry.target, 70, false); // false = depuis la gauche
                 };
 
+                // 🔥 AJOUT ICI : si le parent est un .titre-wrapper → lance l'animation du soulignement
+                const wrapper = entry.target.closest('.titre-wrapper');
+                if (wrapper) {
+                    wrapper.classList.add('animate');
+                }
+
                 // Optionally unobserve after the effect is applied
                 observer.unobserve(entry.target);
             }
@@ -339,3 +345,19 @@ function cacherMenu() {
     // On l'utilise juste pour les liens dans la même page; pour ceux externes une autre page est chargée (donc le menu sera caché)
     document.getElementById("navbarExample").classList.toggle('show');
 };
+
+
+
+//  ^ *************************** Soulignemet special (début)
+// document.addEventListener("DOMContentLoaded", () => {
+//     const wrappers = document.querySelectorAll(".titre-wrapper");
+
+//     wrappers.forEach((wrapper, index) => {
+//         // Option : ajouter un petit délai progressif si tu veux un effet en cascade
+//         setTimeout(() => {
+//             wrapper.classList.add("animate");
+//         }, 300 + index * 300);
+//         // 300 ms pour le premier, +300 ms pour chaque suivant
+//     });
+// });
+//  ^ *************************** Soulignemet special (fin)
