@@ -1067,11 +1067,11 @@ background: radial-gradient(ellipse 150px 100px at center, purple, pink);
   }
 }
 
-/* 📱 Pour les très petits écrans (< 480px) */
-@media (max-width: 480px) {
+/* 📱 Pour les très petits écrans (< 576px) */
+@media (max-width: 576px) {
   .soulignement {
     height: 10px; /* encore plus fin */
-    bottom: -2px;
+    bottom: -1px;
   }
 }
 
