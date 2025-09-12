@@ -1059,6 +1059,21 @@ background: radial-gradient(ellipse 150px 100px at center, purple, pink);
   transform: scaleX(1);
 }
 
+/* 📱 Pour les petits écrans (< 768px par ex.) */
+@media (max-width: 768px) {
+  .soulignement {
+    height: 14px; /* plus fin */
+    bottom: -4px; /* remonte un peu si nécessaire */
+  }
+}
+
+/* 📱 Pour les très petits écrans (< 480px) */
+@media (max-width: 480px) {
+  .soulignement {
+    height: 10px; /* encore plus fin */
+    bottom: -3px;
+  }
+}
 
 
 /* ancienne méthode: 
