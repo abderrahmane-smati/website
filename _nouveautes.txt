@@ -1,5 +1,6 @@
 05/09/2025:
 - texte (overlay) explicatif sur chaque projet du portfolio.
+- effet affichage lettre par lettre pour les titres
 
 07/09/2025:
 - effet HALO lumineux bouton
