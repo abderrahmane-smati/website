@@ -1064,6 +1064,7 @@ background: radial-gradient(ellipse 150px 100px at center, purple, pink);
   .soulignement {
     height: 14px; /* plus fin */
     bottom: -3px; /* remonte un peu si nécessaire */
+    margin-bottom: 6px;
   }
 }
 
@@ -1072,6 +1073,7 @@ background: radial-gradient(ellipse 150px 100px at center, purple, pink);
   .soulignement {
     height: 10px; /* encore plus fin */
     bottom: -1px;
+    margin-bottom: 3px;
   }
 }
 
