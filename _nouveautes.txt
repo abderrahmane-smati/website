@@ -22,4 +22,9 @@
 
 RESTE:
 - je n'ai pas trouvé une solution pour le problème des écrans tactiles où le bouton GoTop garde le style du :hover après un clic.
-- les liens non mis (boutons, choix, ...).
+- les liens non mis (boutons, choix, ...):
+	* bouton "EXPLORE" de "VISUAL DESIGN"
+	* bouton "EXPLORE" de "VIDEOGRAPHY"
+	* bouton "ACADEMIC CASE STUDY" de "ABOUT ME"
+	* choix "VIDEOS" du menu
+- Le problème du fond rouge cerculaire qui apparait dans certains écrans très foncé.
