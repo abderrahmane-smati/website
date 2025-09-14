@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .btn-hover {
+            background: #4f46e5;
+            /* violet élégant */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ------------------------------------- */
+
+        .btn-icon {
+            background: #10b981;
+            /* vert élégant */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-icon .arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-icon:hover {
+            background: #059669;
+        }
+
+        .btn-icon:hover .arrow {
+            transform: translateX(5px);
+        }
+
+
+        /* --------------------------------------- */
+
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+            background: #f43f5e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* Style de l'onde */
+        .btn-ripple span {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            background: rgba(255, 255, 255, 0.5);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="btn-hover">Me contacter</button>
+
+    <!-- ---------------------------------------------- -->
+
+    <button class="btn-icon">
+        Voir mes projets
+        <span class="arrow">→</span>
+    </button>
+
+    <!-- ---------------------------------------------- -->
+
+    <button class="btn-ripple">Télécharger mon CV</button>
+
+
+
+    <script>
+        document.querySelectorAll('.btn-ripple').forEach(button => {
+            button.addEventListener('click', function (e) {
+                // Crée un élément span pour l'onde
+                const ripple = document.createElement('span');
+                const rect = button.getBoundingClientRect();
+
+                // Position de l'onde par rapport au bouton
+                ripple.style.left = (e.clientX - rect.left) + 'px';
+                ripple.style.top = (e.clientY - rect.top) + 'px';
+                ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
+
+                // Ajoute l'onde au bouton
+                button.appendChild(ripple);
+
+                // Supprime l'onde après l'animation
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

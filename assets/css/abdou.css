@@ -802,6 +802,7 @@ body {
   transition: bottom 0.3s ease; */
 }
 
+
 /* Optional tilt effect */
 .projet-portfolio:hover {
   transform: rotateY(2deg) rotateX(1deg);
@@ -924,10 +925,13 @@ body {
 .fond-cercle-30-bis {
   background:
     radial-gradient(circle, #8b0000 0%, transparent 30%), /* Cercle rouge */
-    rgba(60, 60, 60, 0.5); /* Fond gris semi-transparent */  
+    rgba(95, 95, 95, 0.3); /* Fond gris semi-transparent */  
 }
 .fond-cercle-40 {
   background: radial-gradient(circle, #8b0000 0%, transparent 40%);
+}
+.fond-cercle-45 {
+  background: radial-gradient(circle, #8b0000 0%, transparent 45%);
 }
 .fond-cercle-50 {
   background: radial-gradient(circle, #8b0000 0%, transparent 50%);

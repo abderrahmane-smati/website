@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- Section en-tête -->
+    <header>
+        <h1>Bonjour, je suis <span id="typed"></span></h1>
+    </header>
+
+
+    <!-- Ajoute AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <section>
+        <h2 data-aos="fade-up">Mon Parcours</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Développeur passionné par le code.</p>
+        <p data-aos="fade-up" data-aos-delay="200">Expérience en projets web et mobile.</p>
+        <p data-aos="fade-up" data-aos-delay="300">Amoureux du design et de l'UX.</p>
+    </section>
+
+
+
+    <!-- Ajout de la librairie Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        // Initialisation
+        var typed = new Typed("#typed", {
+            strings: ["Développeur Web", "Créatif", "Innovant"],
+            typeSpeed: 70,
+            backSpeed: 40,
+            backDelay: 1000,
+            loop: true
+        });
+
+        AOS.init({
+            duration: 700,  // vitesse de l’animation
+            once: true      // l'animation ne se joue qu'une seule fois
+        });
+
+    </script>
+
+
+</body>
+
+</html>
