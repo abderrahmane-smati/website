@@ -921,6 +921,11 @@ body {
   background-size: contain; */
   /* background-size: 100% 100%; force un cercle étiré dans le div */
 }
+.fond-cercle-30-bis {
+  background:
+    radial-gradient(circle, #8b0000 0%, transparent 30%), /* Cercle rouge */
+    rgba(60, 60, 60, 0.5); /* Fond gris semi-transparent */  
+}
 .fond-cercle-40 {
   background: radial-gradient(circle, #8b0000 0%, transparent 40%);
 }

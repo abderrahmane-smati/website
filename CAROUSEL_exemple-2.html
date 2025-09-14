@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carousel Multi-Items avec Tiny-slider</title>
+    <!-- Tiny Slider CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <style>
+        .my-slider img {
+            border-radius: 12px;
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" style="max-width: 1000px; margin: 50px auto;">
+        <h1 style="text-align:center;">Carousel Multi-Items (défilement une par une)</h1>
+
+        <!-- Slider -->
+        <div class="my-slider">
+            <div><img src="https://picsum.photos/id/1011/600/400" alt="Image 1"></div>
+            <div><img src="https://picsum.photos/id/1012/600/400" alt="Image 2"></div>
+            <div><img src="https://picsum.photos/id/1013/600/400" alt="Image 3"></div>
+            <div><img src="https://picsum.photos/id/1015/600/400" alt="Image 4"></div>
+            <div><img src="https://picsum.photos/id/1016/600/400" alt="Image 5"></div>
+            <div><img src="https://picsum.photos/id/1018/600/400" alt="Image 6"></div>
+            <div><img src="https://picsum.photos/id/1020/600/400" alt="Image 7"></div>
+            <div><img src="https://picsum.photos/id/1021/600/400" alt="Image 8"></div>
+        </div>
+    </div>
+
+    <!-- Tiny Slider JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+    <script>
+        var slider = tns({
+            container: '.my-slider',
+            items: 3,              // Affiche 3 images à la fois
+            slideBy: 1,           // Défile une image à la fois
+            autoplay: true,
+            autoplayButtonOutput: false, // Masque le bouton play/pause par défaut
+            controls: true,        // Affiche flèches gauche/droite
+            nav: true,             // Affiche les petits points en bas
+            loop: true,
+            gutter: 15,           // Espace entre les images (en px)
+            mouseDrag: true,      // Permet glisser avec la souris/tactile
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                992: {
+                    items: 3
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
