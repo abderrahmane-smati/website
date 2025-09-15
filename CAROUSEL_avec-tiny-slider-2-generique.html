@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider générique - transform basé</title>
+    <style>
+        :root {
+            --img-width: 300px;
+            --gap: 16px;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: black;
+            /* background: #f7f7f7; */
+            padding: 30px;
+        }
+
+        .slider-wrapper {
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            position: relative;
+        }
+
+        .window {
+            overflow: hidden;
+            border-radius: 12px;
+            background: black;
+            /* background: #fff; */
+        }
+
+        .track {
+            display: flex;
+            will-change: transform;
+            transition: transform 0s linear;
+            /*  */
+            margin-top: 15px;
+            margin-bottom: 15px;
+            /* background: black; */
+        }
+
+        .track img {
+            width: var(--img-width);
+            margin: 0 calc(var(--gap)/2);
+            border-radius: 10px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .window.paused img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, .55);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .control:hover {
+            background: rgba(0, 0, 0, .8);
+        }
+
+        .prev {
+            left: 8px;
+        }
+
+        .next {
+            right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Slider 1 (grand, rapide)</h2>
+    <div class="slider-wrapper" id="slider1">
+        <div class="window">
+            <div class="track">
+                <img src="https://picsum.photos/id/1011/600/400" data-link="https://unsplash.com/photos/1011">
+                <img src="https://picsum.photos/id/1012/600/400" data-link="https://unsplash.com/photos/1012">
+                <img src="https://picsum.photos/id/1013/600/400" data-link="https://unsplash.com/photos/1013">
+                <img src="https://picsum.photos/id/1015/600/400" data-link="https://unsplash.com/photos/1015">
+                <img src="https://picsum.photos/id/1016/600/400" data-link="https://unsplash.com/photos/1016">
+            </div>
+        </div>
+        <button class="control prev">&#10094;</button>
+        <button class="control next">&#10095;</button>
+    </div>
+
+    <h2>Slider 2 (petit, lent)</h2>
+    <div class="slider-wrapper" id="slider2">
+        <div class="window">
+            <div class="track">
+                <img src="https://picsum.photos/id/1021/600/400">
+                <img src="https://picsum.photos/id/1024/600/400">
+            </div>
+        </div>
+        <button class="control prev">&#10094;</button>
+        <button class="control next">&#10095;</button>
+    </div>
+
+    <script>
+        function initMarqueeSlider(selector, options = {}) {
+            const root = document.querySelector(selector);
+            const windowEl = root.querySelector('.window');
+            const track = root.querySelector('.track');
+            const prevBtn = root.querySelector('.prev');
+            const nextBtn = root.querySelector('.next');
+
+            const speed = options.speed || 80; // px/s
+            const imgWidth = options.imgWidth || 300;
+            const gap = options.gap || 16;
+            const direction = options.direction || 'ltr';
+            const resumeDelay = options.resumeDelay || 400;
+            const stepDuration = options.stepDuration || 300; // ms d'animation clic
+
+            root.style.setProperty('--img-width', imgWidth + 'px');
+            root.style.setProperty('--gap', gap + 'px');
+
+            // attendre chargement des images
+            const imgs = [...track.querySelectorAll('img')];
+            const loaded = imgs.map(img => new Promise(res => img.complete ? res() : img.onload = res));
+            Promise.all(loaded).then(() => {
+                // cloner les images jusqu'à ce que la piste soit large
+                let contentWidth = track.scrollWidth;
+                const minWidth = windowEl.offsetWidth * 2;
+                while (contentWidth < minWidth) {
+                    track.innerHTML += track.innerHTML;
+                    contentWidth = track.scrollWidth;
+                }
+
+                let offset = 0;
+                const dirFactor = (direction === 'rtl') ? -1 : 1;
+                const pxPerMs = (speed * dirFactor) / 1000;
+                const half = track.scrollWidth / 2;
+
+                const pauseReasons = { hover: false, btnHover: false, manual: false };
+                function updatePause() {
+                    windowEl.classList.toggle('paused', Object.values(pauseReasons).some(Boolean));
+                }
+
+                // force offset dans [-half,0] pour éviter "trou"
+                function normalizeOffset() {
+                    while (offset <= -half) offset += half;
+                    while (offset >= 0) offset -= half;
+                }
+
+                let last = performance.now();
+                function loop(now) {
+                    const dt = now - last;
+                    last = now;
+                    if (!Object.values(pauseReasons).some(Boolean)) {
+                        offset -= pxPerMs * dt;
+                        normalizeOffset();
+                        track.style.transform = `translateX(${offset}px)`;
+                    }
+                    requestAnimationFrame(loop);
+                }
+                requestAnimationFrame(loop);
+
+                windowEl.addEventListener('mouseenter', () => { pauseReasons.hover = true; updatePause(); });
+                windowEl.addEventListener('mouseleave', () => { pauseReasons.hover = false; updatePause(); });
+
+                [prevBtn, nextBtn].forEach(btn => {
+                    btn.addEventListener('mouseenter', () => { pauseReasons.btnHover = true; updatePause(); });
+                    btn.addEventListener('mouseleave', () => { pauseReasons.btnHover = false; updatePause(); });
+                });
+
+                function animateTo(newOffset, cb) {
+                    const start = offset;
+                    const delta = newOffset - offset;
+                    const startTime = performance.now();
+                    function stepAnim(now) {
+                        const t = Math.min(1, (now - startTime) / stepDuration);
+                        const ease = t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // easeInOutQuad
+                        offset = start + delta * ease;
+                        track.style.transform = `translateX(${offset}px)`;
+                        if (t < 1) requestAnimationFrame(stepAnim);
+                        else { normalizeOffset(); cb && cb(); }
+                    }
+                    requestAnimationFrame(stepAnim);
+                }
+
+                function manualScroll(dir) {
+                    pauseReasons.manual = true; updatePause();
+                    const step = (imgWidth + gap) * (dir === 'next' ? -1 : 1) * dirFactor;
+                    animateTo(offset + step, () => {
+                        setTimeout(() => { pauseReasons.manual = false; updatePause(); }, resumeDelay);
+                    });
+                }
+
+                prevBtn.addEventListener('click', () => manualScroll('prev'));
+                nextBtn.addEventListener('click', () => manualScroll('next'));
+
+                track.querySelectorAll('img').forEach(img => {
+                    img.addEventListener('click', () => {
+                        if (img.dataset.link) window.open(img.dataset.link, '_blank');
+                    });
+                });
+            });
+        }
+
+        // init sliders
+        initMarqueeSlider('#slider1', { speed: 100, imgWidth: 280, gap: 20, direction: 'rtl' });
+        initMarqueeSlider('#slider2', { speed: 40, imgWidth: 200, gap: 10 });
+    </script>
+
+</body>
+
+</html>

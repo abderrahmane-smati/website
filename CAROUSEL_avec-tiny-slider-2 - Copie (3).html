@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Défilement Continu + Pause + Flèches</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .slider-wrapper {
+            max-width: 1000px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Bande en défilement */
+        .marquee {
+            display: flex;
+            width: max-content;
+            animation: scroll 20s linear infinite;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .marquee.paused {
+            animation-play-state: paused;
+        }
+
+        /* Images */
+        .marquee img {
+            border-radius: 12px;
+            margin: 0 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            width: 300px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .marquee.paused img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animation continue */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Boutons type Bootstrap */
+        .custom-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .custom-prev {
+            left: 10px;
+        }
+
+        .custom-next {
+            right: 10px;
+        }
+
+        .custom-control span {
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.25rem;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        .custom-prev span {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.5 0l-5 4 5 4V0z'/%3E%3C/svg%3E");
+        }
+
+        .custom-next span {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.5 0l5 4-5 4V0z'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider-wrapper">
+        <h1 class="text-center mb-4">Défilement Continu (Pause + Flèches)</h1>
+
+        <!-- Bande d'images -->
+        <div class="marquee" id="marquee">
+            <img src="https://picsum.photos/id/1011/300/200" data-link="https://unsplash.com/photos/1011">
+            <img src="https://picsum.photos/id/1012/300/200" data-link="https://unsplash.com/photos/1012">
+            <img src="https://picsum.photos/id/1013/300/200" data-link="https://unsplash.com/photos/1013">
+            <img src="https://picsum.photos/id/1015/300/200" data-link="https://unsplash.com/photos/1015">
+            <img src="https://picsum.photos/id/1016/300/200" data-link="https://unsplash.com/photos/1016">
+            <img src="https://picsum.photos/id/1018/300/200" data-link="https://unsplash.com/photos/1018">
+            <img src="https://picsum.photos/id/1020/300/200" data-link="https://unsplash.com/photos/1020">
+            <img src="https://picsum.photos/id/1021/300/200" data-link="https://unsplash.com/photos/1021">
+            <!-- On double la liste pour un défilement fluide -->
+            <img src="https://picsum.photos/id/1011/300/200" data-link="https://unsplash.com/photos/1011">
+            <img src="https://picsum.photos/id/1012/300/200" data-link="https://unsplash.com/photos/1012">
+            <img src="https://picsum.photos/id/1013/300/200" data-link="https://unsplash.com/photos/1013">
+            <img src="https://picsum.photos/id/1015/300/200" data-link="https://unsplash.com/photos/1015">
+            <img src="https://picsum.photos/id/1016/300/200" data-link="https://unsplash.com/photos/1016">
+            <img src="https://picsum.photos/id/1018/300/200" data-link="https://unsplash.com/photos/1018">
+            <img src="https://picsum.photos/id/1020/300/200" data-link="https://unsplash.com/photos/1020">
+            <img src="https://picsum.photos/id/1021/300/200" data-link="https://unsplash.com/photos/1021">
+        </div>
+
+        <!-- Boutons -->
+        <button class="custom-control custom-prev" id="prevBtn"><span></span></button>
+        <button class="custom-control custom-next" id="nextBtn"><span></span></button>
+    </div>
+
+    <script>
+        const marquee = document.getElementById('marquee');
+        let offset = 0; // Position manuelle pour clics
+
+        // Pause quand on survole la bande OU les flèches
+        const pause = () => marquee.classList.add('paused');
+        const resume = () => marquee.classList.remove('paused');
+
+        marquee.addEventListener('mouseenter', pause);
+        marquee.addEventListener('mouseleave', resume);
+        document.getElementById('prevBtn').addEventListener('mouseenter', pause);
+        document.getElementById('prevBtn').addEventListener('mouseleave', resume);
+        document.getElementById('nextBtn').addEventListener('mouseenter', pause);
+        document.getElementById('nextBtn').addEventListener('mouseleave', resume);
+
+        // Déplacement d'une image par clic
+        const step = 300 + 16; // largeur image + marges (8px de chaque côté)
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            offset += step;
+            console.log('prev', offset);
+            marquee.style.transform = `translateX(${offset}px)`;
+        });
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            offset -= step;
+            console.log('next', offset);
+            marquee.style.transform = `translateX(${offset}px)`;
+        });
+
+        // Clic sur image -> lien
+        document.querySelectorAll('.marquee img').forEach(img => {
+            img.addEventListener('click', () => window.open(img.dataset.link, '_blank'));
+        });
+    </script>
+
+</body>
+
+</html>

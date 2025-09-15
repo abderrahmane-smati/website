@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tiny-slider - Défilement Continu + Pause Hover</title>
+
+    <!-- Tiny Slider CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .my-slider img {
+            border-radius: 12px;
+            width: 100%;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .my-slider img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .tns-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .tns-controls button {
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 10px 15px;
+            border-radius: 50%;
+            pointer-events: all;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tns-controls button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .slider-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider-wrapper">
+        <h1 style="text-align:center;">Carousel Continu avec Tiny-slider</h1>
+
+        <!-- Slider -->
+        <div class="my-slider">
+            <div><img src="https://picsum.photos/id/1011/600/400" data-link="https://unsplash.com/photos/1011" alt="Image 1"></div>
+            <div><img src="https://picsum.photos/id/1012/600/400" data-link="https://unsplash.com/photos/1012" alt="Image 2"></div>
+            <div><img src="https://picsum.photos/id/1013/600/400" data-link="https://unsplash.com/photos/1013" alt="Image 3"></div>
+            <div><img src="https://picsum.photos/id/1015/600/400" data-link="https://unsplash.com/photos/1015" alt="Image 4"></div>
+            <div><img src="https://picsum.photos/id/1016/600/400" data-link="https://unsplash.com/photos/1016" alt="Image 5"></div>
+            <div><img src="https://picsum.photos/id/1018/600/400" data-link="https://unsplash.com/photos/1018" alt="Image 6"></div>
+            <div><img src="https://picsum.photos/id/1020/600/400" data-link="https://unsplash.com/photos/1020" alt="Image 7"></div>
+            <div><img src="https://picsum.photos/id/1021/600/400" data-link="https://unsplash.com/photos/1021" alt="Image 8"></div>
+        </div>
+    </div>
+
+    <!-- Tiny Slider JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+    <script>
+        // Initialisation du slider
+        var slider = tns({
+            container: '.my-slider',
+            items: 3,
+            slideBy: 1,
+            autoplay: true,
+            autoplayTimeout: 0,   // Pas d'interval fixe (on force le "rewind")
+            autoplayHoverPause: true,
+            controls: true,
+            nav: false,
+            mouseDrag: true,
+            loop: true,
+            speed: 5000,         // Vitesse de défilement (ms) → crée l'effet "continu"
+            autoplayButtonOutput: false,
+            gutter: 15,
+            responsive: {
+                0: { items: 1 },
+                768: { items: 2 },
+                992: { items: 3 }
+            }
+        });
+
+        // Gestion du clic sur les images → ouvre le lien dans un nouvel onglet
+        document.querySelectorAll('.my-slider img').forEach(img => {
+            img.addEventListener('click', function () {
+                window.open(this.dataset.link, '_blank');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

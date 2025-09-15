@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Marquee continu + Prev/Next (défile 1 image au clic)</title>
+    <style>
+        :root {
+            --img-width: 300px;
+            --gap: 16px;
+        }
+
+        body {
+            font-family: system-ui, Segoe UI, Roboto, Arial;
+            padding: 40px;
+            background: #f7f7f7;
+        }
+
+        .slider-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .window {
+            width: 100%;
+            overflow: hidden;
+            /* cache le débordement */
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .marquee {
+            display: inline-flex;
+            /* inline-flex pour largeur natif */
+            align-items: center;
+            will-change: transform, scroll-left;
+            /* pas d'animation CSS ici : on contrôle via JS */
+        }
+
+        .marquee img {
+            width: var(--img-width);
+            height: auto;
+            margin: 0 calc(var(--gap) / 2);
+            border-radius: 10px;
+            flex-shrink: 0;
+            /* empêche le rétrécissement */
+            cursor: pointer;
+            transition: transform .28s cubic-bezier(.2, .8, .2, 1), box-shadow .28s;
+        }
+
+        /* Effet zoom uniquement quand on est en pause */
+        .window.paused img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
+        }
+
+        /* Boutons style "Bootstrap-like" */
+        .control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, .55);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            transition: background .18s;
+        }
+
+        .control:hover {
+            background: rgba(0, 0, 0, .8);
+        }
+
+        .control:active {
+            transform: translateY(-50%) scale(.98);
+        }
+
+        .prev {
+            left: 8px;
+        }
+
+        .next {
+            right: 8px;
+        }
+
+        /* Hide scrollbar for aesthetics */
+        .window::-webkit-scrollbar {
+            display: none;
+        }
+
+        .window {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider-wrapper">
+        <h2 style="text-align:center;margin-bottom:18px;">Défilement continu — Prev / Next déplace d'une image</h2>
+
+        <div class="window" id="window">
+            <div class="marquee" id="marquee">
+                <!-- Liste UNIQUE d'images : le JS va dupliquer pour la boucle -->
+                <img src="https://picsum.photos/id/1011/600/400" data-link="https://unsplash.com/photos/1011" alt="1">
+                <img src="https://picsum.photos/id/1012/600/400" data-link="https://unsplash.com/photos/1012" alt="2">
+                <img src="https://picsum.photos/id/1013/600/400" data-link="https://unsplash.com/photos/1013" alt="3">
+                <img src="https://picsum.photos/id/1015/600/400" data-link="https://unsplash.com/photos/1015" alt="4">
+                <img src="https://picsum.photos/id/1016/600/400" data-link="https://unsplash.com/photos/1016" alt="5">
+                <img src="https://picsum.photos/id/1018/600/400" data-link="https://unsplash.com/photos/1018" alt="6">
+                <img src="https://picsum.photos/id/1020/600/400" data-link="https://unsplash.com/photos/1020" alt="7">
+                <img src="https://picsum.photos/id/1021/600/400" data-link="https://unsplash.com/photos/1021" alt="8">
+            </div>
+        </div>
+
+        <!-- Controls (icônes SVG inline pour éviter dépendances) -->
+        <button class="control prev" id="prevBtn" aria-label="Précédent">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 3L5 8L10 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <button class="control next" id="nextBtn" aria-label="Suivant">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 3L11 8L6 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        /*
+          Logique :
+          - On duplique le contenu de #marquee pour obtenir une séquence AB + AB (boucle fluide)
+          - On anime la position via window.scrollLeft (requestAnimationFrame)
+          - Quand scrollLeft >= halfWidth, on soustrait halfWidth pour boucler
+          - Pause quand hover window OU hover boutons
+          - Prev / Next : pause temporaire et scroll d'une largeur d'image (smooth)
+        */
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const windowEl = document.getElementById('window');
+            const marquee = document.getElementById('marquee');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // --- duplication pour boucle ---
+            marquee.innerHTML = marquee.innerHTML + marquee.innerHTML;
+
+            // attend le chargement de toutes les images (originales + duplicatas)
+            const imgs = Array.from(marquee.querySelectorAll('img'));
+            const whenLoaded = imgs.map(img => new Promise(res => {
+                if (img.complete) return res();
+                img.onload = img.onerror = res;
+            }));
+
+            Promise.all(whenLoaded).then(init);
+
+            function init() {
+                // paramètres de vitesse
+                const pxPerSecond = 80;            // ajuste la vitesse ici (px / seconde)
+                const pxPerMs = pxPerSecond / 1000;
+                let isPaused = false;
+
+                // gestion des raisons de pause (on combine plusieurs sources)
+                const pauseReasons = { hoverWindow: false, hoverButtons: false, manual: false };
+                function updatePause() {
+                    const paused = Object.values(pauseReasons).some(Boolean);
+                    if (paused) windowEl.classList.add('paused');
+                    else windowEl.classList.remove('paused');
+                    isPaused = paused;
+                }
+
+                // variables boucle
+                let lastTime = performance.now();
+                let rafId = null;
+
+                // calculs utiles
+                function halfWidth() { return marquee.scrollWidth / 2; }
+
+                // démarrer la boucle rAF
+                function step(now) {
+                    const dt = Math.max(0, now - lastTime);
+                    lastTime = now;
+                    if (!isPaused) {
+                        // incrémenter le scroll selon la vitesse et le delta time
+                        const delta = pxPerMs * dt;
+                        windowEl.scrollLeft += delta;
+                        // wrap-around quand on dépasse la moitié (duplication)
+                        if (windowEl.scrollLeft >= halfWidth()) {
+                            windowEl.scrollLeft -= halfWidth();
+                        } else if (windowEl.scrollLeft < 0) {
+                            windowEl.scrollLeft += halfWidth();
+                        }
+                    }
+                    rafId = requestAnimationFrame(step);
+                }
+                rafId = requestAnimationFrame(step);
+
+                // gestion hover pour la window (pause)
+                windowEl.addEventListener('mouseenter', () => { pauseReasons.hoverWindow = true; updatePause(); });
+                windowEl.addEventListener('mouseleave', () => { pauseReasons.hoverWindow = false; updatePause(); });
+
+                // pause aussi quand on survole une des flèches
+                [prevBtn, nextBtn].forEach(btn => {
+                    btn.addEventListener('mouseenter', () => { pauseReasons.hoverButtons = true; updatePause(); });
+                    btn.addEventListener('mouseleave', () => { pauseReasons.hoverButtons = false; updatePause(); });
+                });
+
+                // util: taille d'un "pas" (une image + gap)
+                function computeStep() {
+                    const firstImg = marquee.querySelector('img');
+                    if (!firstImg) return 300;
+                    const style = getComputedStyle(firstImg);
+                    const marginLeft = parseFloat(style.marginLeft) || 0;
+                    const marginRight = parseFloat(style.marginRight) || 0;
+                    const width = firstImg.getBoundingClientRect().width;
+                    return Math.round(width + marginLeft + marginRight);
+                }
+
+                // Prev / Next : scroll d'une image (smooth), pause pendant l'animation
+                let resumeTimer = null;
+                function manualScroll(direction) {
+                    // pause manuelle
+                    pauseReasons.manual = true;
+                    updatePause();
+
+                    const stepPx = computeStep();
+                    let target;
+                    if (direction === 'next') target = windowEl.scrollLeft + stepPx;
+                    else target = windowEl.scrollLeft - stepPx;
+
+                    // Do smooth scroll
+                    windowEl.scrollTo({ left: target, behavior: 'smooth' });
+
+                    // après bref délai, on réactive l'auto-scroll
+                    clearTimeout(resumeTimer);
+                    resumeTimer = setTimeout(() => {
+                        // wrap fix si besoin (au cas où target dépasse halfWidth)
+                        const hw = halfWidth();
+                        if (windowEl.scrollLeft >= hw) windowEl.scrollLeft -= hw;
+                        if (windowEl.scrollLeft < 0) windowEl.scrollLeft += hw;
+
+                        pauseReasons.manual = false;
+                        updatePause();
+                    }, 520); // ~durée du scroll smooth (ajuste si nécessaire)
+                }
+
+                prevBtn.addEventListener('click', () => manualScroll('prev'));
+                nextBtn.addEventListener('click', () => manualScroll('next'));
+
+                // click sur image : ouvre lien data-link
+                marquee.querySelectorAll('img').forEach(img => {
+                    img.addEventListener('click', (e) => {
+                        const url = img.dataset.link;
+                        if (url) {
+                            window.open(url, '_blank');
+                        }
+                    });
+                });
+
+                // au resize, si besoin, on ajuste (pas strictement nécessaire mais sûr)
+                window.addEventListener('resize', () => {
+                    // assure que le scroll reste coherent après redimensionnement
+                    const hw = halfWidth();
+                    if (windowEl.scrollLeft >= hw) windowEl.scrollLeft -= hw;
+                });
+            } // end init
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- ^ 
+L’exemple est assez flexible, tu peux le personnaliser sans trop toucher à la logique.
+Voici **tous les paramètres et options que tu peux modifier** pour l’adapter à ton site :
+
+---
+
+## 🔧 Paramètres personnalisables
+
+### 🎞️ **Défilement automatique**
+
+| Paramètre     | Où il se trouve                                  | Effet                                                                                     | Valeur par défaut |
+| ------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------- | ----------------- |
+| `pxPerSecond` | Dans le JS, ligne :<br>`const pxPerSecond = 80;` | Contrôle la vitesse du défilement **continu** (px par seconde). Plus grand = plus rapide. | `80`              |
+| `pxPerMs`     | Calcul automatique : `pxPerSecond / 1000`        | Ne change pas directement, dérivé de `pxPerSecond`.                                       | —                 |
+
+💡 **Exemple :**
+
+* `pxPerSecond = 40` → défilement 2x plus lent
+* `pxPerSecond = 120` → défilement 1.5x plus rapide
+
+---
+
+### ⏸️ **Pause / Reprise**
+
+| Élément                     | Personnalisable ? | Effet                                                                                                                                          |
+| --------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pauseReasons.hoverWindow`  | (JS)              | Active/désactive pause quand on survole la bande. Tu peux le désactiver en supprimant les listeners `mouseenter` / `mouseleave` de `windowEl`. |
+| `pauseReasons.hoverButtons` | (JS)              | Pause au survol des boutons Prev/Next. Tu peux supprimer si tu veux que l’animation continue même quand la souris est sur les flèches.         |
+| `pauseReasons.manual`       | (JS)              | Pause automatique après clic sur Prev/Next (empêche la bande de repartir pendant le scroll manuel). Tu peux ajuster la durée du `setTimeout`.  |
+
+---
+
+### 🖼️ **Images**
+
+| Paramètre                    | Où le modifier                               | Effet                                                                  |         |
+| ---------------------------- | -------------------------------------------- | ---------------------------------------------------------------------- | ------- |
+| **Liste des `<img>`**        | Dans le HTML (`<div id="marquee">...</div>`) | Ajoute/supprime des images facilement.                                 |         |
+| `--img-width` (CSS variable) | Dans `:root`                                 | Largeur de chaque image (toutes les images s’adaptent à cette valeur). | `300px` |
+| `--gap` (CSS variable)       | Dans `:root`                                 | Espace horizontal entre deux images (somme des deux marges).           | `16px`  |
+| `border-radius`              | Dans `.marquee img` (CSS)                    | Coins arrondis des images.                                             | `10px`  |
+
+---
+
+### 🎛️ **Boutons de navigation**
+
+| Paramètre               | Où le modifier               | Effet                                                                    |
+| ----------------------- | ---------------------------- | ------------------------------------------------------------------------ |
+| `.control` (CSS)        | Couleur, taille, position    | Change l'apparence globale (fond, taille, bordures, radius).             |
+| `.prev` / `.next` (CSS) | `left: 8px;` / `right: 8px;` | Ajuste la position horizontale des flèches.                              |
+| Icônes `<svg>`          | Dans le HTML                 | Tu peux remplacer les SVG par tes propres icônes (ex. icônes Bootstrap). |
+
+---
+
+### 🖱️ **Scroll manuel (clic flèches)**
+
+| Paramètre                                   | Où il se trouve | Effet                                                                                                                 |
+| ------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `computeStep()`                             | JS              | Calcule la largeur d’une image + marge pour défiler d’un "pas". Tu peux forcer une valeur fixe si tu veux.            |
+| `windowEl.scrollTo({ behavior: 'smooth' })` | JS              | Active le scroll doux. Tu peux le remplacer par un scroll instantané en retirant `behavior: 'smooth'`.                |
+| `resumeTimer = setTimeout(..., 520)`        | JS              | Temps avant que le défilement automatique reprenne après un clic. Ajuste si tu veux un délai plus court ou plus long. |
+
+---
+
+### 🎨 **Styles et effets visuels**
+
+| Élément                          | Où le modifier                                            | Effet                                    |
+| -------------------------------- | --------------------------------------------------------- | ---------------------------------------- |
+| `.window.paused img:hover` (CSS) | Ajoute ou enlève le `transform: scale()` et `box-shadow`. | Animation de zoom sur l’image au survol. |
+| `.window` (CSS)                  | Peut avoir un fond ou bordure si tu veux un cadre.        | Cadre autour de la bande.                |
+| `h2`                             | Dans le HTML                                              | Titre du slider (facultatif).            |
+
+---
+
+### 🔁 **Boucle infinie**
+
+La duplication des images est faite automatiquement dans ce code :
+
+```js
+marquee.innerHTML = marquee.innerHTML + marquee.innerHTML;
+```
+
+⚠️ Si tu modifies la liste d’images, **la duplication restera automatique** — pas besoin d’ajouter les doublons manuellement.
+
+---
+
+## 💡 Conseils pour intégration
+
+* Tu peux **mettre plusieurs sliders sur la même page** : il suffit de dupliquer le bloc HTML et de donner un `id` différent à chaque `window` et `marquee`, puis réutiliser le JS dans une fonction réutilisable.
+* Tu peux inclure ce slider dans **Bootstrap 5** sans problème : il suffit d’ajouter les classes utilitaires de Bootstrap sur `.slider-wrapper` pour gérer les marges/paddings (par ex. `mb-5`).
+* Tu peux même remplacer les flèches par les **icônes Bootstrap** (`bi-chevron-left` et `bi-chevron-right`).
+
+ -->
