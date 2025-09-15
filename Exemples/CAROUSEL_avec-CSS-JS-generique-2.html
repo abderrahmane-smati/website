@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider générique - transform basé</title>
+    <style>
+        :root {
+            --img-width: 300px;
+            --gap: 16px;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: black;
+            /* background: #f7f7f7; */
+            padding: 30px;
+        }
+
+        .slider-wrapper {
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            position: relative;
+        }
+
+        .window {
+            overflow: hidden;
+            border-radius: 12px;
+            background: black;
+            /* background: #fff; */
+        }
+
+        .track {
+            display: flex;
+            will-change: transform;
+            transition: transform 0s linear;
+            /*  */
+            margin-top: 15px;
+            margin-bottom: 15px;
+            /* background: black; */
+        }
+
+        .track img {
+            width: var(--img-width);
+            margin: 0 calc(var(--gap)/2);
+            border-radius: 10px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .window.paused img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, .55);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .control:hover {
+            background: rgba(0, 0, 0, .8);
+        }
+
+        .prev {
+            left: 8px;
+        }
+
+        .next {
+            right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Slider 1 (grand, rapide)</h2>
+    <div class="slider-wrapper" id="slider1">
+        <div class="window">
+            <div class="track">
+                <img src="https://picsum.photos/id/1011/600/400" data-link="https://unsplash.com/photos/1011">
+                <img src="https://picsum.photos/id/1012/600/400" data-link="https://unsplash.com/photos/1012">
+                <img src="https://picsum.photos/id/1013/600/400" data-link="https://unsplash.com/photos/1013">
+                <img src="https://picsum.photos/id/1015/600/400" data-link="https://unsplash.com/photos/1015">
+                <img src="https://picsum.photos/id/1016/600/400" data-link="https://unsplash.com/photos/1016">
+            </div>
+        </div>
+        <button class="control prev">&#10094;</button>
+        <button class="control next">&#10095;</button>
+    </div>
+
+    <h2>Slider 2 (petit, lent)</h2>
+    <div class="slider-wrapper" id="slider2">
+        <div class="window">
+            <div class="track">
+                <img src="https://picsum.photos/id/1021/600/400">
+                <img src="https://picsum.photos/id/1024/600/400">
+            </div>
+        </div>
+        <button class="control prev">&#10094;</button>
+        <button class="control next">&#10095;</button>
+    </div>
+
+    <script>
+        function initMarqueeSlider(selector, options = {}) {
+            const root = document.querySelector(selector);
+            if (!root) return;
+
+            const windowEl = root.querySelector('.window');
+            const track = root.querySelector('.track');
+            const prevBtn = root.querySelector('.prev');
+            const nextBtn = root.querySelector('.next');
+
+            const speed = options.speed || 80; // px/s
+            const imgWidth = options.imgWidth || 300;
+            const gap = options.gap || 16;
+            const direction = options.direction || 'ltr';
+            const resumeDelay = options.resumeDelay || 400;
+            const stepDuration = options.stepDuration || 300; // durée en ms
+            const easingType = options.easing || 'easeInOutQuad';
+            const showArrows = options.showArrows !== false; // true par défaut
+
+            root.style.setProperty('--img-width', imgWidth + 'px');
+            root.style.setProperty('--gap', gap + 'px');
+
+            if (!showArrows) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+            }
+
+            // Fonctions d'easing
+            const easings = {
+                linear: t => t,
+                easeInOutQuad: t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t,
+                easeOutCubic: t => (--t) * t * t + 1,
+                easeInCubic: t => t * t * t
+            };
+            const easeFn = easings[easingType] || easings.easeInOutQuad;
+
+            // attendre chargement des images
+            const imgs = [...track.querySelectorAll('img')];
+            const loaded = imgs.map(img => new Promise(res => img.complete ? res() : img.onload = res));
+            Promise.all(loaded).then(() => {
+                // cloner les images jusqu'à ce que la piste soit large
+                let contentWidth = track.scrollWidth;
+                const minWidth = windowEl.offsetWidth * 2;
+                while (contentWidth < minWidth) {
+                    track.innerHTML += track.innerHTML;
+                    contentWidth = track.scrollWidth;
+                }
+
+                let offset = 0;
+                const dirFactor = (direction === 'rtl') ? -1 : 1;
+                const pxPerMs = (speed * dirFactor) / 1000;
+                const half = track.scrollWidth / 2;
+
+                const pauseReasons = { hover: false, btnHover: false, manual: false };
+                function updatePause() {
+                    windowEl.classList.toggle('paused', Object.values(pauseReasons).some(Boolean));
+                }
+
+                function normalizeOffset() {
+                    while (offset <= -half) offset += half;
+                    while (offset >= 0) offset -= half;
+                }
+
+                let last = performance.now();
+                function loop(now) {
+                    const dt = now - last;
+                    last = now;
+                    if (!Object.values(pauseReasons).some(Boolean)) {
+                        offset -= pxPerMs * dt;
+                        normalizeOffset();
+                        track.style.transform = `translateX(${offset}px)`;
+                    }
+                    requestAnimationFrame(loop);
+                }
+                requestAnimationFrame(loop);
+
+                windowEl.addEventListener('mouseenter', () => { pauseReasons.hover = true; updatePause(); });
+                windowEl.addEventListener('mouseleave', () => { pauseReasons.hover = false; updatePause(); });
+
+                if (showArrows) {
+                    [prevBtn, nextBtn].forEach(btn => {
+                        btn.addEventListener('mouseenter', () => { pauseReasons.btnHover = true; updatePause(); });
+                        btn.addEventListener('mouseleave', () => { pauseReasons.btnHover = false; updatePause(); });
+                    });
+                }
+
+                function animateTo(newOffset, cb) {
+                    const start = offset;
+                    const delta = newOffset - offset;
+                    const startTime = performance.now();
+                    function stepAnim(now) {
+                        const t = Math.min(1, (now - startTime) / stepDuration);
+                        const eased = easeFn(t);
+                        offset = start + delta * eased;
+                        track.style.transform = `translateX(${offset}px)`;
+                        if (t < 1) requestAnimationFrame(stepAnim);
+                        else { normalizeOffset(); cb && cb(); }
+                    }
+                    requestAnimationFrame(stepAnim);
+                }
+
+                function manualScroll(dir) {
+                    pauseReasons.manual = true; updatePause();
+                    const step = (imgWidth + gap) * (dir === 'next' ? -1 : 1) * dirFactor;
+                    animateTo(offset + step, () => {
+                        setTimeout(() => { pauseReasons.manual = false; updatePause(); }, resumeDelay);
+                    });
+                }
+
+                if (showArrows) {
+                    prevBtn.addEventListener('click', () => manualScroll('prev'));
+                    nextBtn.addEventListener('click', () => manualScroll('next'));
+                }
+
+                track.querySelectorAll('img').forEach(img => {
+                    img.addEventListener('click', () => {
+                        if (img.dataset.link) window.open(img.dataset.link, '_blank');
+                    });
+                });
+            });
+        }
+
+        // Exemple : 
+        initMarqueeSlider('#slider1', {
+            speed: 100,
+            imgWidth: 280,
+            gap: 20,
+            direction: 'rtl',
+            easing: 'easeOutCubic'
+        });
+
+        initMarqueeSlider('#slider2', {
+            speed: 40,
+            imgWidth: 200,
+            gap: 10,
+            showArrows: false,  // pas de flèches pour le 2e
+            easing: 'linear'
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+<!-- 
+
+paramètres:
+==========
+
+
+| Paramètre                        | Type / Valeurs possibles                                                                              | Défaut            | Description                                                                                                                                                                                                                                                         |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`speed`**                      | `number` (px/sec)                                                                                     | `80`              | Vitesse de défilement automatique. Plus la valeur est élevée, plus ça défile vite.                                                                                                                                                                                  |
+| **`imgWidth`**                   | `number` (px)                                                                                         | `300`             | Largeur d’une image dans le slider (chaque image a cette largeur + le `gap`).                                                                                                                                                                                       |
+| **`gap`**                        | `number` (px)                                                                                         | `16`              | Espacement horizontal entre les images.                                                                                                                                                                                                                             |
+| **`direction`**                  | `"ltr"` ou `"rtl"`                                                                                    | `"ltr"`           | Sens du défilement automatique : <br>• `"ltr"` → défile de gauche vers droite <br>• `"rtl"` → défile de droite vers gauche                                                                                                                                          |
+| **`resumeDelay`**                | `number` (ms)                                                                                         | `400`             | Délai avant de reprendre le défilement automatique après un clic sur les flèches.                                                                                                                                                                                   |
+| **`stepDuration`**               | `number` (ms)                                                                                         | `300`             | Durée de l’animation (transition douce) lorsqu’on clique sur une flèche.                                                                                                                                                                                            |
+| **`easing`**                     | `"linear"`, `"easeInOutQuad"`, `"easeOutCubic"`, `"easeInCubic"` ou fonction personnalisée `(t)=>...` | `"easeInOutQuad"` | Détermine le type d’animation pour les clics sur les flèches :<br>• `linear` → vitesse constante <br>• `easeInOutQuad` → accélère puis ralentit <br>• `easeOutCubic` → départ rapide puis ralentissement marqué <br>• `easeInCubic` → départ lent puis accélération |
+| **`showArrows`**                 | `true` ou `false`                                                                                     | `true`            | Affiche ou masque les flèches (et désactive leur logique si `false`).                                                                                                                                                                                               |
+| **`pauseOnHover`** *(optionnel)* | `true` ou `false`                                                                                     | `true`            | (Si tu l’ajoutes) Contrôle si le slider se met en pause au survol. <br>• `true` → stoppe le défilement au survol <br>• `false` → le slider continue à défiler même si la souris est dessus                                                                          |
+
+---
+
+## 🖊️ **Exemples d’utilisation**
+
+### 1️⃣ Slider classique avec toutes les options
+
+```js
+initMarqueeSlider('#slider1', {
+  speed: 120,
+  imgWidth: 280,
+  gap: 20,
+  direction: 'rtl',
+  resumeDelay: 600,
+  stepDuration: 400,
+  easing: 'easeOutCubic',
+  showArrows: true
+});
+```
+
+### 2️⃣ Slider simple, sans flèches et toujours en défilement
+
+```js
+initMarqueeSlider('#slider2', {
+  speed: 50,
+  imgWidth: 200,
+  gap: 10,
+  showArrows: false,
+  pauseOnHover: false,  // il continue même au survol
+  easing: 'linear'
+});
+```
+
+### 3️⃣ Easing personnalisé
+
+```js
+initMarqueeSlider('#slider3', {
+  easing: t => Math.pow(t, 3) // easeInCubic personnalisé
+});
+```
+
+---
+
+💡 **Astuce** :
+Tu peux combiner ces options pour créer plusieurs sliders sur une même page avec des comportements totalement différents (vitesse, direction, présence des flèches, etc.).
+
+
+-->
