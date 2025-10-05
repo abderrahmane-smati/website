@@ -1153,6 +1153,49 @@ background: radial-gradient(ellipse 150px 100px at center, purple, pink);
 }
 
 
+/* ^ ******************************** detail projet */
+/* Fond silver du carousel */
+#carouselProjet {
+  background-color: white;
+  /* background-color: silver; */
+  padding: 1rem; /* petit espace autour de l’image */
+}
+
+/* Boutons circulaires */
+.carousel-control-prev.custom-btn,
+.carousel-control-next.custom-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.9;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev.custom-btn:hover,
+.carousel-control-next.custom-btn:hover {
+  opacity: 1;
+}
+
+/* Icônes noires */
+.carousel-control-prev-icon.custom-icon,
+.carousel-control-next-icon.custom-icon {
+  filter: invert(1); /* transforme la flèche blanche en noire */
+}
+
+
+
+.img-transparente {
+    /* Supprimez le mix-blend-mode puisque l'image n'a plus de fond */
+    /* opacity: 1 !important; */
+    /* Assure un rendu immédiat */
+    /* transform: translateZ(0);
+    backface-visibility: hidden; */
+}
+
+
+
 
 /* ! ---------- Modifications faites pour portfolio Werdeni (début) ---------- */
 /*
