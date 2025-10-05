@@ -684,10 +684,16 @@ body {
 /* ! -------------- */
 .project-card {
   cursor: pointer;
-  border-radius: 0.375rem;
+  border-radius: 1.5rem;
+  /* border-radius: 0.375rem; */
   box-shadow: 4px 4px 8px 2px rgba(255, 255, 255, 0.2),
     0 4px 10px 0 rgba(255, 255, 255, 0.6);
   /* box-shadow: 2px 2px 2px 2px rgba(255, 255, 255, 0.2), 0 2px 5px 0 rgba(255, 255, 255, 0.6);  */
+}
+
+
+picture img {
+  border-radius: 1.5rem;;
 }
 
 /* box-shadow: offset-x offset-y blur-radius spread-radius color inset;
@@ -790,6 +796,7 @@ body {
   background-size: 75%;
   background-position: center; /* Center the image * /
   background-repeat: no-repeat; /* Prevent the image from repeating * / */
+  border-radius: 1.5rem;
 }
 
 .projet-portfolio:hover .project-overlay {
@@ -1136,3 +1143,36 @@ background: radial-gradient(ellipse 150px 100px at center, purple, pink);
   }
 } */
 /* ^ *************************** Soulignemet special (fin) */
+
+
+.project-card picture img {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* ou 4/3, 1/1 pour carré, etc. */
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+
+
+/* ! ---------- Modifications faites pour portfolio Werdeni (début) ---------- */
+/*
+.project-card {
+  border-radius: 0.375rem => 1.5rem;
+
+picture img {
+  border-radius: 1.5rem;;
+}
+
+.project-overlay {
+  border-radius: 1.5rem;
+
+.project-card picture img {
+  width: 100%;
+  aspect-ratio: 3 / 4; / * ou 4/3, 1/1 pour carré, etc... largeur / hauteur * /
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+*/
+
+/* ! ---------- Modifications faites pour portfolio Werdeni (fin) ---------- */

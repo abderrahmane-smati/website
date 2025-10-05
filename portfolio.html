@@ -103,9 +103,12 @@
     <!-- <div class="b-example-divider"></div> -->
 
     <div class="container" id="custom-cards">
-      <!-- <div class="container px-4 py-5" id="custom-cards"> -->
 
-      <div class="z_image-de-fond-35 fond-cercle" style="--limite-fond-cercle: 15%;">
+
+      <!-- <div class="container px-4 py-5" id="custom-cards"> -->
+      <div class="container-fluid text-light p-3 py-5 mx-0 z_image-de-fond-35 fond-cercle estomper estomper-bas-50-s-075" style="--limite-fond-cercle: 15%;">
+
+        <!-- <div class="z_image-de-fond-35 fond-cercle text-light" style="--limite-fond-cercle: 15%;"> -->
 
         <div class="titre-wrapper">
           <h2 class="pb-2 z_borderbottom text-light my-fs-2 estomper estomper-gauche-250-s-075 text-avec-ombre-2 affichage-lettre-par-lettre titre-souligne">PROJECTS</h2>
@@ -114,50 +117,88 @@
           </svg>
         </div>
 
+        <p class="my-fs-6 mt-3">Throughout my career, I've worked on diverse projects in industries such as luxury fashion, real estate, healthcare, and education. These experiences have allowed me to combine creativity with strategic thinking, delivering tailored solutions that meet each brand's unique needs. From print and digital design to comprehensive branding campaigns, my work reflects a commitment to quality, attention to detail, and innovation. Explore this collection to see how I transform ideas into impactful visual experiences.</p>
+
       </div>
 
 
 
-      <div class="row row-cols-1 row-cols-lg-2 px1 align-items-stretch g-4 py-5 z_image-de-fond-75 fond-cercle-40">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 px1 align-items-stretch g-4 py-5 z_image-de-fond-75 fond-cercle-40">
         <!-- <div class="row row-cols-1 row-cols-lg-2 px-1 align-items-stretch g-4 py-5"> -->
         <!-- <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"> -->
 
         <!-- ^ PROJECT 1 -->
         <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
-          <!-- <div class="col estomper-bas-50-s-075 projet-portfolio p0 image-de-fond-35"> -->
           <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_museum-of-the-future.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/museum-of-the-future.avif" type="image/avif" alt="Museum of The Future" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/museum-of-the-future.png" alt="Museum of The Future" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">Museum of The Future</h3>
+              <p class="my-fs-6">Marketing - Creative Direction</p>
+              <a type="button" href="portfolio_museum-of-the-future.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ^ PROJECT 1 -OLD- -->
+        <!-- <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          < !-- <div class="col estomper-bas-50-s-075 projet-portfolio p0 image-de-fond-35"> -- >
+          < !-- Wrap the entire card in "project-card" for hover effects -- >
           <div class="project-card">
             <a href="portfolio-projet-01.html">
               <img src="assets/photos/projet-01-pg.png" class="img-fluid" alt="WORKOUT IN GYM">
             </a>
-            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
-            <!-- Overlay (hidden by default) -->
+            < !-- * 1. Animated Project Cards (Hover + Tilt Effect) -- >
+            < !-- Overlay (hidden by default) -- >
             <div class="project-overlay fond-cercle-30-bis">
               <h3 class="my-fs-4 text-avec-ombre-2">WORKOUT IN GYM</h3>
               <p class="my-fs-6">I'VE BEEN WORKING ON SHOOTING AND EDITING VIDEOS FOR A MODEL‘S WORKOUTS AT THE GYM</p>
-              <!-- <a href="portfolio-projet-01.html" class="view-button fs-6 fs-md-5 fs-lg-4">View Project</a> -->
+              < !-- <a href="portfolio-projet-01.html" class="view-button fs-6 fs-md-5 fs-lg-4">View Project</a> -- >
               <a type="button" href="portfolio-projet-01.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
             </div>
-            <!-- <div class="project-overlay fond-cercle-30">
+            < !-- <div class="project-overlay fond-cercle-30">
               <h3 class="fs-6 fs-md-4 fs-lg-1">WORKOUT IN GYM</h3>
               <p class="fs-6 fs-md-5 fs-lg-3">I'VE BEEN WORKING ON SHOOTING AND EDITING VIDEOS FOR A MODEL‘S WORKOUTS AT THE GYM</p>
               <a href="portfolio-projet-01.html" class="view-button fs-6 fs-md-5 fs-lg-4">View Project</a>
-            </div> -->
+            </div> -- >
           </div>
-        </div>
+        </div> -->
 
 
         <!-- ^ PROJECT 2 -->
         <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
           <!-- <div class="col estomper-bas-50-s-075 projet-portfolio p0 image-de-fond-35"> -->
           <div class="project-card">
-            <a href="#">
-              <img src="assets/photos/projet.png" class="img-fluid" alt="alternative text">
+            <a href="portfolio_luxury-retail.html">
+              <!-- <img src="assets/photos/projet.png" class="img-fluid" alt="alternative text"> -->
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/luxury-retail.avif" type="image/avif" alt="Luxury Retail" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- WebP fallback (widely supported, smaller than PNG) -->
+                <!-- <source srcset="image.webp" type="image/webp"> -->
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/luxury-retail.png" alt="Luxury Retail" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
             </a>
             <div class="project-overlay fond-cercle-30-bis">
-              <h3 class="my-fs-4 text-avec-ombre-2">TITLE</h3>
-              <p class="my-fs-6">DESCRIPTION ...</p>
-              <a type="button" href="#" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+              <h3 class="my-fs-5 text-avec-ombre-2">Luxury Retail</h3>
+              <p class="my-fs-6">Branding - Campaign directions</p>
+              <a type="button" href="portfolio_luxury-retail.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
             </div>
           </div>
         </div>
@@ -165,7 +206,329 @@
 
         <!-- ^ PROJECT 3 -->
         <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
-          <!-- <div class="col estomper-bas-50-s-075 projet-portfolio p0 image-de-fond-35"> -->
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_saas.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/saas.avif" type="image/avif" alt="SaaS" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/saas.png" alt="SaaS" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">SaaS</h3>
+              <p class="my-fs-6">Web Design - User Interface</p>
+              <a type="button" href="portfolio_saas.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 4 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_uae-gov.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/uae-gov.avif" type="image/avif" alt="UAE GOV" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/uae-gov.png" alt="UAE GOV" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">UAE GOV</h3>
+              <p class="my-fs-6">Art Direction - Social Media</p>
+              <a type="button" href="portfolio_uae-gov.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 5 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_sora.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/sora.avif" type="image/avif" alt="Sora" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/sora.png" alt="Sora" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">Sora</h3>
+              <p class="my-fs-6">Healthcare - Creative Direction</p>
+              <a type="button" href="portfolio_sora.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 6 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_manilabeat.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/manilabeat.avif" type="image/avif" alt="Manilabeat" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/manilabeat.png" alt="Manilabeat" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">Manilabeat</h3>
+              <p class="my-fs-6">Hybrid Apparel - Branding</p>
+              <a type="button" href="portfolio_manilabeat.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 7 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_peonycollective.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/peonycollective.avif" type="image/avif" alt="Peonycollective" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/peonycollective.png" alt="Peonycollective" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">Peonycollective</h3>
+              <p class="my-fs-6">Luxury Fashion - Creative Direction</p>
+              <a type="button" href="portfolio_peonycollective.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 8 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_butik-gez.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/butik-gez.avif" type="image/avif" alt="ButikGez" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/butik-gez.png" alt="ButikGez" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">ButikGez</h3>
+              <p class="my-fs-6">Fashion Marketplace - Web Design</p>
+              <a type="button" href="portfolio_butik-gez.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 9 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_medical-tourism.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/medical-tourism.avif" type="image/avif" alt="Medical Tourism" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/medical-tourism.png" alt="Medical Tourism" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">Medical Tourism</h3>
+              <p class="my-fs-6">Healthcare - Ad Creatives</p>
+              <a type="button" href="portfolio_medical-tourism.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 10 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_real-estate.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/real-estate.avif" type="image/avif" alt="Real Estate" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/real-estate.png" alt="Real Estate" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">Real Estate</h3>
+              <p class="my-fs-6">Wen Design - Social Media</p>
+              <a type="button" href="portfolio_real-estate.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 11 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_retail.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/retail.avif" type="image/avif" alt="Retail" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/retail.png" alt="Retail" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">Retail</h3>
+              <p class="my-fs-6">Web Design - Social Media</p>
+              <a type="button" href="portfolio_retail.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 12 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_stc-clinical-sexology.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/stc-clinical-sexology.avif" type="image/avif" alt="STC - Clinical Sexology" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/stc-clinical-sexology.png" alt="STC - Clinical Sexology" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">STC - Clinical Sexology</h3>
+              <p class="my-fs-6">Branding</p>
+              <a type="button" href="portfolio_stc-clinical-sexology.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 13 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_b-b.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/b-b.avif" type="image/avif" alt="B&B" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/b-b.png" alt="B&B" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">B&B</h3>
+              <p class="my-fs-6">Branding</p>
+              <a type="button" href="portfolio_b-b.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ^ PROJECT 14 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_next-investment.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/next-investment.avif" type="image/avif" alt="Next Investment" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/next-investment.png" alt="Next Investment" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">Next Investment</h3>
+              <p class="my-fs-6">Socila Media Desing</p>
+              <a type="button" href="portfolio_next-investment.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ^ PROJECT 15 -->
+        <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          <!-- Wrap the entire card in "project-card" for hover effects -->
+          <div class="project-card">
+            <a href="portfolio_graphikos.html">
+
+              <picture>
+                <!-- AVIF first (best compression, modern browsers) -->
+                <source srcset="assets/photos/portfolio/graphikos.avif" type="image/avif" alt="Graphikos" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+
+                <!-- PNG last (universal fallback) -->
+                <img src="assets/photos/portfolio/graphikos.png" alt="Graphikos" class="img-fluid" loading="lazy" style="object-fit: cover; object-position: 50% 50%; width: 100%;">
+              </picture>
+
+            </a>
+            <!-- * 1. Animated Project Cards (Hover + Tilt Effect) -->
+            <div class="project-overlay fond-cercle-30-bis">
+              <h3 class="my-fs-5 text-avec-ombre-2">Graphikos</h3>
+              <p class="my-fs-6">Social Media - Digital -Print</p>
+              <a type="button" href="portfolio_graphikos.html" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col estomper estomper-bas-50-s-075 projet-portfolio p0">
+          < !-- <div class="col estomper-bas-50-s-075 projet-portfolio p0 image-de-fond-35"> -- >
           <div class="project-card">
             <a href="#">
               <img src="assets/photos/projet.png" class="img-fluid" alt="alternative text">
@@ -176,7 +539,7 @@
               <a type="button" href="#" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6t px-2">VIEW PROJECT</a>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
       </div>
