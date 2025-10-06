@@ -69,7 +69,7 @@
 
 
 
-  <!-- ^ comment créer un soulignement:
+  <!-- ^ comment créer u soulignement:
     - https://www.figma.com, session avec Google (smatimed7)
     - Crée un nouveau fichier → ajoute un cadre (Frame) de 120×20 px (comme ton viewBox)
     - Utilise l’outil crayon (ou plume) pour dessiner ton soulignement
@@ -157,10 +157,12 @@
 
   <main class="container-fluid p-0 m-0" id="main">
 
-    <!-- *** Hello  -->
-    <div class="row container-fluid estomper estomper-au-lancement estomper-bas-50-s-075" style="z_margin-top: 120px;">
+    <!-- *** Hello + Carousel -->
+    <div class="row row-cols-1 row-cols-sm-2 container-fluid estomper estomper-au-lancement estomper-bas-50-s-075" style="z_margin-top: 120px;">
 
-      <div class="col z_image-de-fond z_fond-cercle-45 p-3" style="maxheight: 394px;">
+      <div class="col z_image-de-fond fond-cercle-45 p-3" style="max-height: 394px;">
+        <!-- 394px est la hauteur de la plus grande image "carousel-photo-3.webp"" -->
+        <!-- <button type="button" class="btn bouton-rouge fw-bold my-fs-6b px-4">HEY IT'S ABDERRAHMANE HERE</button> -->
 
         <button type="button" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6b px-4">
           <!-- <button type="button" class="btn bouton-rouge fw-bold my-fs-6b px-4"> -->
@@ -169,17 +171,36 @@
 
         <h3 class="text-avec-ombre-2">
           <!-- <p class="my-0 py-1 my-fs-1"><span class="span-texte-1">Marketing-</span><span class="span-texte-2">driven</span></p> -->
-
-          <p class="my-0 py-1 my-fs-3"><span class="span-texte-1">VISUAL ARTS</span> CONSTITUTE<span class="span-texte-1"> A PLEASURE</span>, WITH <span class="span-texte-1"> DISCIPLINE</span> AND <span class="span-texte-1">MOTIVATION</span> IT'S <span class="span-texte-1">A DELIGHT</span>.
-          </p>
-
-          <!-- <p class="my-0 py-1 my-fs-3"><span class="span-texte-1">VISUAL ARTS</span><span class="span-texte-2"> CONSTITUTE</span><span class="span-texte-1"> A PLEASURE</span>
-          <span><p class="my-0 py-1 my-fs-3 span-texte-2">WITH</span><span class="span-texte-1"> DISCIPLINE</span> AND <span class="span-texte-1">MOTIVATION</span> IT'S <span class="span-texte-1">A DELIGHT</span></p> -->
+          <p class="my-0 py-1 my-fs-3"><span class="span-texte-1">VISUAL ARTS</span><span class="span-texte-2"> CONSTITUTE</span><span class="span-texte-1"> A PLEASURE</span></p>
+          <p class="my-0 py-1 my-fs-3 span-texte-2">WITH<span class="span-texte-1"> DISCIPLINE</span> AND <span class="span-texte-1">MOTIVATION</span> IT'S <span class="span-texte-1">A DELIGHT</span></p>
         </h3>
 
       </div>
 
+      <!-- * ***************************************** CAROUSSEL -->
+      <div class="col carousel-conteneur" style="max-height: 394px;">
+        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
 
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <!-- <div class="carousel-item active" style="background-image:url(./assets/photos/carousel-photo-1.webp); max-height: 300px;"> -->
+              <img id="premiereImageDuCarousel" src="./assets/photos/carousel-photo-1.webp" class="d-block w-100 img-fluid mx-auto" alt="" srcset="">
+            </div>
+
+            <div class="carousel-item">
+              <!-- <div class="carousel-item" style="background-image:url(./assets/photos/carousel-photo-2.webp); max-height: 300px;"> -->
+              <img src="./assets/photos/carousel-photo-2.webp" class="d-block w-100 img-fluid mx-auto" alt="" srcset="">
+            </div>
+
+            <div class="carousel-item">
+              <!-- <div class="carousel-item" style="background-image:url(./assets/photos/carousel-photo-3.webp); max-height: 300px; "> -->
+              <img src="./assets/photos/carousel-photo-3.webp" class="d-block w-100 img-fluid mx-auto" alt="" srcset="">
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -189,7 +210,7 @@
     <!-- <div class="h-25 h-sm-50 h-lg-75"></div> -->
     <!-- <div class=".responsive-div"></div> -->
 
-    <div class="container-fluid p-3 mx-0 py-5 z_image-de-fond-30 fond-cercle-45" id="custom-cards">
+    <div class="container-fluid p-3 mx-0 py-5 z_image-de-fond-50 fond-cercle-45" id="custom-cards">
 
       <div class="titre-wrapper">
         <h2 class="pb-2 borderbottom text-light my-fs-2 estomper estomper-gauche-250-s-075 text-avec-ombre-2 affichage-lettre-par-lettre titre-souligne">AREAS OF EXPERTISE</h2>
@@ -288,6 +309,93 @@
     <!-- * ************************************** CARDS  -->
 
 
+    <div class="container-fluid text-light p-3 mx-0 py-5 z_image-de-fond-35 fond-cercle-20 estomper estomper-bas-50-s-075" id="custom-cards">
+
+      <div class="titre-wrapper">
+        <h2 class="pb-2 z_border-bottom my-fs-2 estomper estomper-gauche-250-s-075 text-avec-ombre-2 affichage-lettre-par-lettre titre-souligne">VISUAL DESIGN</h2>
+        <svg class="soulignement" viewBox="0 0 120 100" preserveAspectRatio="none">
+          <use href="#soulignement" />
+        </svg>
+      </div>
+
+      <p class="my-fs-5b">EXPLORE MY CREATIVE JOURNEY IN DESIGN, FROM UNIQUE BRANDING PROJECTS TO WEB INTERFACE DESIGN, AND MARKETING VISUALS.</p>
+      <button type="button" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6b px-4">EXPLORE</button>
+    </div>
+
+    <!-- <div class="container-fluid text-light p-3 mx-0 py-5 z_image-de-fond-35 fond-cercle-30 estomper estomper-bas-50-s-075" id="custom-cards">
+      <h2 class="pb-2 z_border-bottom my-fs-2 estomper estomper-gauche-250-s-075 text-avec-ombre-2 affichage-lettre-par-lettre">TEST</h2>
+      <p class="my-fs-5b">TEST , TEST , TEST.</p>
+    </div>
+    <div class="container-fluid text-light p-3 mx-0 py-5 z_image-de-fond-35 fond-cercle-40 estomper estomper-bas-50-s-075" id="custom-cards">
+      <h2 class="pb-2 z_border-bottom my-fs-2 estomper estomper-gauche-250-s-075 text-avec-ombre-2 affichage-lettre-par-lettre">TEST 2</h2>
+      <p class="my-fs-5b">Lorem ipsum dolor sit amet consectetur></p>
+      <p class="my-fs-5b">adipisicing elit. Enim, voluptas error.</p>
+      <p class="my-fs-5b"> Repellat nulla cum magnam reprehenderit sed,</p>
+      <p class="my-fs-5b"> mollitia, reiciendis non debitis</p>
+      <p class="my-fs-5b"> odio itaque numquam sequi,</p>
+      <p class="my-fs-5b"> eius fuga blanditiis asperiores distinctio.</p>
+    </div> -->
+
+
+    <!-- * ************************************** CARDS 2 -->
+    <div class="container-fluid p-3 mx-0 py-5 z_image-de-fond-50 fond-cercle-30" id="custom-cards">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 align-items-stretch g-4 py-5">
+
+        <!-- ^ Visual design 1 -->
+        <div class="col estomper estomper-bas-50-s-075">
+          <div class="card card-cover h-100 overflow-hidden rounded-top-4 shadow-lg bg-cover bg-center d-flex flex-column design-visuel">
+            <div class="p-3 pb-1">
+              <h3 class="p-0 m-0 mb-2 fs-4 lh-1 fwbold">SORA</h3>
+              <p class="my-small p-0 x-0">BRANDING | VISUAL IDENTITY</p>
+            </div>
+
+            <img class="m-3" src="assets/photos/visual-design-1.webp" alt="SORA" srcset="">
+
+          </div>
+        </div>
+
+        <!-- ^ Visual design 2 -->
+        <div class="col estomper estomper-bas-50-s-075">
+          <div class="card card-cover h-100 overflow-hidden rounded-top-4 shadow-lg bg-cover bg-center d-flex flex-column design-visuel">
+            <div class="p-3 pb-1">
+              <h3 class="p-0 m-0 mb-2 fs-4 lh-1 fwbold">MANILABEAT</h3>
+              <p class="my-small p-0 x-0">BRANDING | LOGO DESIGN | WEB DESIGN</p>
+            </div>
+
+            <img class="m-3" src="assets/photos/visual-design-2.webp" alt="MANILABEAT" srcset="">
+
+          </div>
+        </div>
+
+        <!-- ^ Visual design 3 -->
+        <div class="col estomper estomper-bas-50-s-075">
+          <div class="card card-cover h-100 overflow-hidden rounded-top-4 shadow-lg bg-cover bg-center d-flex flex-column design-visuel">
+            <div class="p-3 pb-1">
+              <h3 class="p-0 m-0 mb-2 fs-4 lh-1 fwbold">PEONYCOLLECTIVE</h3>
+              <p class="my-small p-0 x-0">BRANDING | UI DEGIN | SOCIAL MEDIA</p>
+            </div>
+
+            <img class="m-3" src="assets/photos/visual-design-3.webp" alt="PEONYCOLLECTIVE" srcset="">
+
+          </div>
+        </div>
+
+        <!-- ^ Visual design 4 -->
+        <div class="col estomper estomper-bas-50-s-075">
+          <div class="card card-cover h-100 overflow-hidden rounded-top-4 shadow-lg bg-cover bg-center d-flex flex-column design-visuel">
+            <div class="p-3 pb-1">
+              <h3 class="p-0 m-0 mb-2 fs-4 lh-1 fwbold">AESTHETIC</h3>
+              <p class="my-small p-0 x-0">VISUAL DESIGN | UI DESIGN | AD CREATIVE</p>
+            </div>
+
+            <img class="m-3" src="assets/photos/visual-design-4.webp" alt="AESTHETIC" srcset="">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- * ************************************** CARDS 2  -->
 
 
     <div class="container-fluid text-light p-3 mx-0 py-5 z_image-de-fond-35 fond-cercle-20 estomper estomper-bas-50-s-075" id="custom-cards">

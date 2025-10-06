@@ -368,11 +368,14 @@ function cacherMenu() {
 const carousel = document.getElementById('carouselProjet');
 const prevBtn = carousel.querySelector('.carousel-control-prev');
 const nextBtn = carousel.querySelector('.carousel-control-next');
-const items = carousel.querySelectorAll('.carousel-item');
-let total = items.length;
+// const items = carousel.querySelectorAll('.carousel-item');
+// let total = items.length;
 
 // Gestion de l’affichage des boutons
 carousel.addEventListener('slid.bs.carousel', function (e) {
+    const items = carousel.querySelectorAll('.carousel-item');
+    let total = items.length;
+
     let index = [...items].indexOf(e.relatedTarget);
 
     // cacher bouton précédent si première slide
@@ -393,3 +396,24 @@ carousel.addEventListener('slid.bs.carousel', function (e) {
 // Initialiser l’état au chargement
 prevBtn.style.display = "none"; // première slide
 // ^ -------- JS pour cacher les boutons aux extrémités du CAROUSEL (fin)
+
+
+function creerPhotosDuCarousel_PortfolioProjet(prefixePhoto, nbrePhotos, alt_valeur) {
+    const conteneur = document.getElementById("conteneur-photos-du-carousel");
+
+    conteneur.innerHTML = "";
+
+    for (let iPhoto = 1; iPhoto <= nbrePhotos; iPhoto++) {
+
+        const divPhoto = document.createElement('div');
+        if (iPhoto == 1) {
+            divPhoto.className = "carousel-item active";
+        } else {
+            divPhoto.className = "carousel-item";
+        };
+
+        divPhoto.innerHTML = `<img src="assets/photos/portfolio/${prefixePhoto}/${prefixePhoto}_${iPhoto}.jpg" class="d-block w-100 rounded-5" alt="${alt_valeur} ${iPhoto}">`;
+
+        conteneur.appendChild(divPhoto);
+    };
+};

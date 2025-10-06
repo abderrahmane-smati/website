@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutons en forme de flèche</title>
+    <style>
+        /* body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f2f5;
+            font-family: Arial, sans-serif;
+            gap: 20px;
+        } */
+
+        /* ====== Bouton flèche gauche ====== */
+        .btn-arrow-left {
+            position: relative;
+            background: #007BFF;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 20% 100%, 0 50%);
+        }
+
+        .btn-arrow-left:hover {
+            background: #0056b3;
+        }
+
+        /* ====== Bouton flèche droite ====== */
+        .btn-arrow-right {
+            position: relative;
+            background: #007BFF;
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+        }
+
+        .btn-arrow-right:hover {
+            background: #0056b3;
+        }
+
+        /* ====== Responsive ====== */
+        @media (max-width: 600px) {
+
+            .btn-arrow-left,
+            .btn-arrow-right {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="btn-arrow-left">Précédent</button>
+    <button class="btn-arrow-right">Suivant</button>
+
+</body>
+
+</html>

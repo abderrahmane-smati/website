@@ -15,6 +15,12 @@
 
   <link href="assets/photos/favicon.png" rel="icon">
 
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-fixed/"> -->
+
+
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"> -->
+  <!-- <link rel="stylesheet" href="assets/css/docsearch.css"> -->
+
   <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/dist/bootstrap-icons.css" rel="stylesheet">
 
@@ -22,6 +28,7 @@
 
 
   <!-- Custom styles for this template -->
+  <!-- <link href="assets/css/navbar-fixed.css" rel="stylesheet"> -->
   <link href="assets/css/carousel.css" rel="stylesheet">
   <link href="assets/css/features.css" rel="stylesheet">
   <link href="assets/css/bootstrap-template-style.css" rel="stylesheet">
@@ -54,12 +61,14 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 my-fs-6b">
           <li class="nav-item mx-2">
             <a class="nav-link" aria-current="page" href="index.html">HOME</a>
+            <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link" href="index.html#me-bio">BIO</a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link" href="portfolio.html">PORTFOLIO</a>
+            <!-- <a class="nav-link disabled" aria-disabled="true">Portfolio</a> -->
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link" href="#">VIDEOS</a>
@@ -77,24 +86,26 @@
 
   <!-- ^ ********************************************* MAIN -->
 
+  <!-- <h1 CLASS="text-white">EXEMPLE</h1> -->
   <div id="separateurPourNavBar" style="height: 90px;"></div>
+  <!-- <div id="separateurPourNavBar" style="height: 120px;"></div> -->
 
 
   <main class="container-fluid px-5" id="main-div">
 
 
     <!-- * ******************** infos projet -->
-    <div class="container-fluid largeur-adaptee mx-auto px-4 px-lg-5 my-4 estomper estomper-au-lancement estomper-bas-50-s-075">
+    <div class="container-fluid px-4 px-lg-5 my-4 estomper estomper-au-lancement estomper-bas-50-s-075">
       <div class="row g-4">
 
         <!-- Première zone -->
         <div class="col-12 col-md-9">
-          <div class="p-4 rounded-5 text-white bg-dark h-100">
+          <div class="p-4 rounded-5 text-white bg-dark">
             <h1 class="display-4 fw-bold">
-              *****TITRE
+              Museum of the Future
             </h1>
             <p class="fs-5">
-              *****DESCRIPTION
+              As a senior in-house designer, I played a key role in shaping the Museum of the Future’s visual identity, crafting impactful designs for print, digital screens, exhibitions, and marketing campaigns. I developed engaging visuals for events, workshops, and social media, ensuring every design resonated with audiences. A highlight was leading the creative direction for the museum’s collaboration with SXSW in Austin, Texas, requiring a full event rebrand across digital and print platforms. My work merged innovation, storytelling, and strategy, transforming complex ideas into compelling visuals that inspired visitors and positioned the museum as a global creative force.
             </p>
           </div>
         </div>
@@ -102,7 +113,6 @@
         <!-- Deuxième zone -->
         <div class="col-12 col-md-3">
           <div class="p-4 rounded-5 text-white bg-dark h-100">
-            *****
             <p class="fw-semibold fs-6 mb-1">Client:</p>
             <p class="fs-6 fw-bold mb-3">Museum of The Future</p>
 
@@ -124,10 +134,58 @@
 
     <!-- * ******************** photos projet (carousel) -->
     <!-- CAROUSEL -->
-    <div class="container-fluid largeur-adaptee mx-auto my-5 px-4 px-lg-5">
+    <div class="container-fluid my-5 px-4 px-lg-5">
       <div id="carouselProjet" class="carousel slide bg-silver rounded-4" data-bs-ride="false">
-        <div class="carousel-inner" id="conteneur-photos-du-carousel">
+        <div class="carousel-inner">
 
+          <!-- Première image active -->
+          <div class="carousel-item active">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_01.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 01">
+          </div>
+
+          <!-- Les autres images -->
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_02.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 02">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_03.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 03">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_04.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 04">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_05.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 05">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_06.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 06">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_07.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 07">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_08.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 08">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_09.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 09">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_10.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 10">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_11.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 11">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_12.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 12">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_13.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 13">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_14.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 14">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/photos/portfolio/museum-of-the-future/museum-of-the-future_15.jpg" class="d-block w-100 rounded-5" alt="Museum of the Future 15">
+          </div>
 
         </div>
 
@@ -147,12 +205,17 @@
 
 
 
-    *****CLASSE "btn-desactive" , LIENS Previous et Next
-    <div class="container-fluid largeur-adaptee mx-auto my-5 px-4 px-lg-5 buttons-container">
-      <button type="button" class="btn-fleche btn-fleche-gauche btn-desactive"><a href="#" style="text-decoration: none;" aria-disabled="false">Previous Project</a>
+    <!-- <div class="container my-5">
+    <button type="button" class="btn bouton-rouge effet-halo-lumineux fw-bold my-fs-6b px-4">
+      <a href="#" style="text-decoration: none;" aria-disabled="false">Previous Project</a>
+    </button>
+  </div> -->
+
+    <div class="container-fluid my-5 px-4 px-lg-5 buttons-container">
+      <button type="button" class="btn-fleche btn-fleche-gauche"><a href="#" style="text-decoration: none;" aria-disabled="false">Previous Project</a>
       </button>
 
-      <button type="button" class="btn-fleche btn-milieu"><a href="portfolio.html" style="text-decoration: none;" aria-disabled="false">All Projects</a>
+      <button type="button" class="btn-fleche btn-milieu"><a href="#" style="text-decoration: none;" aria-disabled="false">All Projects</a>
       </button>
 
       <button type="button" class="btn-fleche btn-fleche-droite"><a href="#" style="text-decoration: none;" aria-disabled="false">Next Project</a>
@@ -195,9 +258,6 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('.estomper-au-lancement.estomper-bas-50-s-075').classList.add('estomper-vertical-fin');
-
-      *****
-        creerPhotosDuCarousel_PortfolioProjet("*****DOSSIER-ET-PREFIXE-NOMS-DE-PHOTOS", 15, "*****ALT");
     });
 
     setTimeout(function () { document.getElementById('premiereImageDuCarousel').classList.add('visible') }, 500);
