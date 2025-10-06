@@ -361,3 +361,35 @@ function cacherMenu() {
 //     });
 // });
 //  ^ *************************** Soulignemet special (fin)
+
+
+
+// ^ -------- JS pour cacher les boutons aux extrémités du CAROUSEL (debut)
+const carousel = document.getElementById('carouselProjet');
+const prevBtn = carousel.querySelector('.carousel-control-prev');
+const nextBtn = carousel.querySelector('.carousel-control-next');
+const items = carousel.querySelectorAll('.carousel-item');
+let total = items.length;
+
+// Gestion de l’affichage des boutons
+carousel.addEventListener('slid.bs.carousel', function (e) {
+    let index = [...items].indexOf(e.relatedTarget);
+
+    // cacher bouton précédent si première slide
+    if (index === 0) {
+        prevBtn.style.display = "none";
+    } else {
+        prevBtn.style.display = "flex";
+    }
+
+    // cacher bouton suivant si dernière slide
+    if (index === total - 1) {
+        nextBtn.style.display = "none";
+    } else {
+        nextBtn.style.display = "flex";
+    }
+});
+
+// Initialiser l’état au chargement
+prevBtn.style.display = "none"; // première slide
+// ^ -------- JS pour cacher les boutons aux extrémités du CAROUSEL (fin)
