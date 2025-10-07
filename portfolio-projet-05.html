@@ -85,17 +85,16 @@
 
 
     <!-- * ******************** infos projet -->
-    <div class="container-fluid largeur-adaptee mx-auto px-2 px-md-4 px-lg-5 my-4 estomper estomper-au-lancement estomper-bas-50-s-075">
+    <div class="container-fluid mx-auto px-2 px-md-4 px-lg-5 my-4 estomper estomper-au-lancement estomper-bas-50-s-075">
       <div class="row g-4">
 
         <!-- Première zone -->
         <div class="col-12 col-md-9">
           <div class="p-4 rounded-5 text-white bg-dark h-100">
-            <h1 class="display-5 fw-bold">
-              #####TITRE
-            </h1>
+            <h1 class="display-5 fw-bold">SORA</h1>
+            <h2 class="display-6">Medical Aesthetics</h2>
             <p class="fs-6">
-              #####DESCRIPTION
+              SORA is a pioneer in medical aesthetics, blending science, artistry, and personalized care to help individuals reveal their inner beauty. I had the privilege of revitalizing the brand, refining its visual identity, messaging, and digital presence to create an experience that is both engaging and impactful, elevating its connection with clients.
             </p>
           </div>
         </div>
@@ -103,18 +102,18 @@
         <!-- Deuxième zone -->
         <div class="col-12 col-md-3">
           <div class="p-4 rounded-5 text-white bg-dark h-100">
-            #####
+
             <p class="fw-semibold fs-6 mb-1">Client:</p>
-            <p class="fs-6 fw-bold mb-3">Museum of The Future</p>
+            <p class="fs-6 fw-bold mb-3">SORA Clinic</p>
 
-            <p class="fw-semibold fs-6 mb-1">Agency:</p>
-            <p class="fs-6 fw-bold mb-3">Alsayegh Media</p>
+            <p class="fw-semibold fs-6 mb-1">Industry:</p>
+            <p class="fs-6 fw-bold mb-3">Healthcare</p>
 
-            <p class="fw-semibold fs-6 mb-1">Role:</p>
-            <p class="fs-6 fw-bold mb-3">Art Direction & Design</p>
+            <p class="fw-semibold fs-6 mb-1">Project Type:</p>
+            <p class="fs-6 fw-bold mb-3">Branding & Strategy</p>
 
-            <p class="fw-semibold fs-6 mb-1">Scope of work:</p>
-            <p class="fs-6 fw-bold mb-0">Visual Communication</p>
+            <p class="fw-semibold fs-6 mb-1">Tools:</p>
+            <p class="fs-6 fw-bold mb-0">Adobe, Wix, AI</p>
           </div>
         </div>
 
@@ -123,40 +122,24 @@
 
 
 
-    <!-- * ******************** photos projet (carousel) -->
+    <!-- * ******************** photos projet affichées empilées les unes sur les autres -->
     <!-- CAROUSEL -->
-    <div class="container-fluid largeur-adaptee mx-auto my-5 px-2 px-md-4 px-lg-5">
-      <div id="carouselProjet" class="carousel slide bg-silver rounded-4" data-bs-ride="false">
-        <div class="carousel-inner" id="conteneur-photos-du-carousel">
+    <div class="container-fluid mx-auto my-5 px-2 px-md-4 px-lg-5">
+      <div id="conteneur-photos-empilees">
 
-
-        </div>
-
-        <!-- Bouton précédent -->
-        <button class="carousel-control-prev custom-btn" type="button" data-bs-target="#carouselProjet" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon custom-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Précédent</span>
-        </button>
-
-        <!-- Bouton suivant -->
-        <button class="carousel-control-next custom-btn" type="button" data-bs-target="#carouselProjet" data-bs-slide="next">
-          <span class="carousel-control-next-icon custom-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Suivant</span>
-        </button>
       </div>
     </div>
 
 
 
-    #####CLASSE "btn-desactive" , LIENS Previous et Next
-    <div class="container-fluid largeur-adaptee mx-auto my-5 px-2 px-md-4 px-lg-5 buttons-container">
-      <button type="button" class="btn-fleche btn-fleche-gauche btn-desactive"><a href="#" style="text-decoration: none;" aria-disabled="false">Previous Project</a>
+    <div class="container-fluid mx-auto my-5 px-2 px-md-4 px-lg-5 buttons-container">
+      <button type="button" class="btn-fleche btn-fleche-gauche"><a href="portfolio-projet-04.html" style="text-decoration: none;" aria-disabled="false">Previous Project</a>
       </button>
 
       <button type="button" class="btn-fleche btn-milieu"><a href="portfolio.html" style="text-decoration: none;" aria-disabled="false">All Projects</a>
       </button>
 
-      <button type="button" class="btn-fleche btn-fleche-droite"><a href="#" style="text-decoration: none;" aria-disabled="false">Next Project</a>
+      <button type="button" class="btn-fleche btn-fleche-droite"><a href="portfolio-projet-06.html" style="text-decoration: none;" aria-disabled="false">Next Project</a>
       </button>
     </div>
 
@@ -197,8 +180,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('.estomper-au-lancement.estomper-bas-50-s-075').classList.add('estomper-vertical-fin');
 
-      #####
-      creerPhotosDuCarousel_PortfolioProjet("#####DOSSIER-ET-PREFIXE-NOMS-DE-PHOTOS", ##### nbrePhotos, "#####ALT");
+      creerPhotosEmpilees_PortfolioProjet("sora", 29, "Sora")
     });
 
     setTimeout(function () { document.getElementById('premiereImageDuCarousel').classList.add('visible') }, 500);

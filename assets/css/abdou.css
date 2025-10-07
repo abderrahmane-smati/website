@@ -1225,9 +1225,14 @@ picture img {
 
 .btn-desactive {
   color: grey !important;
+  pointer-events: none;
   /* color: rgb(230, 226, 226) !important; */
   /* background-color: grey; */
 }
+.btn-desactive a {
+  pointer-events: none;
+}
+
 /* .btn-desactive {
   display: none;
 } */

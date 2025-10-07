@@ -398,15 +398,18 @@ prevBtn.style.display = "none"; // première slide
 // ^ -------- JS pour cacher les boutons aux extrémités du CAROUSEL (fin)
 
 
+
+// ^ -------- Créer les photos d'un projet (debut)
+
 function creerPhotosDuCarousel_PortfolioProjet(prefixePhoto, nbrePhotos, alt_valeur) {
     const conteneur = document.getElementById("conteneur-photos-du-carousel");
 
     conteneur.innerHTML = "";
 
-    for (let iPhoto = 1; iPhoto <= nbrePhotos; iPhoto++) {
+    for (let iPhoto = 0; iPhoto < nbrePhotos; iPhoto++) {
 
         const divPhoto = document.createElement('div');
-        if (iPhoto == 1) {
+        if (iPhoto == 0) {
             divPhoto.className = "carousel-item active";
         } else {
             divPhoto.className = "carousel-item";
@@ -417,3 +420,21 @@ function creerPhotosDuCarousel_PortfolioProjet(prefixePhoto, nbrePhotos, alt_val
         conteneur.appendChild(divPhoto);
     };
 };
+
+function creerPhotosEmpilees_PortfolioProjet(prefixePhoto, nbrePhotos, alt_valeur) {
+    const conteneur = document.getElementById("conteneur-photos-empilees");
+
+    conteneur.innerHTML = "";
+
+    for (let iPhoto = 0; iPhoto < nbrePhotos; iPhoto++) {
+
+        const divPhoto = document.createElement('div');
+        // divPhoto.className = "carousel-item";
+
+        divPhoto.innerHTML = `<img src="assets/photos/portfolio/${prefixePhoto}/${prefixePhoto}_${iPhoto}.jpg" class="d-block w-100" alt="${alt_valeur} ${iPhoto}">`;
+
+        conteneur.appendChild(divPhoto);
+    };
+};
+
+// ^ -------- Créer les photos d'un projet (fin)
